@@ -438,22 +438,31 @@ function $RouteProvider() {
      *
      *       <hr />
      *
-     *       <pre>$location.path() = {{$location.path()}}</pre>
-     *       <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
-     *       <pre>$route.current.params = {{$route.current.params}}</pre>
-     *       <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
-     *       <pre>$routeParams = {{$routeParams}}</pre>
+     *       <pre>$location.path() = {{$location.path()}}
+</pre>
+     *       <pre>$route.current.templateUrl = {{$route.current.templateUrl}}
+</pre>
+     *       <pre>$route.current.params = {{$route.current.params}}
+</pre>
+     *       <pre>$route.current.scope.name = {{$route.current.scope.name}}
+</pre>
+     *       <pre>$routeParams = {{$routeParams}}
+</pre>
      *     </div>
      *   </file>
      *
      *   <file name="book.html">
-     *     controller: {{name}}<br />
-     *     Book Id: {{params.bookId}}<br />
+     *     controller: {{name}}
+<br />
+     *     Book Id: {{params.bookId}}
+<br />
      *   </file>
      *
      *   <file name="chapter.html">
-     *     controller: {{name}}<br />
-     *     Book Id: {{params.bookId}}<br />
+     *     controller: {{name}}
+<br />
+     *     Book Id: {{params.bookId}}
+<br />
      *     Chapter Id: {{params.chapterId}}
      *   </file>
      *
@@ -991,24 +1000,32 @@ ngRouteModule.directive('ngView', ngViewFillContentFactory);
           </div>
           <hr />
 
-          <pre>$location.path() = {{main.$location.path()}}</pre>
-          <pre>$route.current.templateUrl = {{main.$route.current.templateUrl}}</pre>
-          <pre>$route.current.params = {{main.$route.current.params}}</pre>
-          <pre>$routeParams = {{main.$routeParams}}</pre>
+          <pre>$location.path() = {{main.$location.path()}}
+</pre>
+          <pre>$route.current.templateUrl = {{main.$route.current.templateUrl}}
+</pre>
+          <pre>$route.current.params = {{main.$route.current.params}}
+</pre>
+          <pre>$routeParams = {{main.$routeParams}}
+</pre>
         </div>
       </file>
 
       <file name="book.html">
         <div>
-          controller: {{book.name}}<br />
-          Book Id: {{book.params.bookId}}<br />
+          controller: {{book.name}}
+<br />
+          Book Id: {{book.params.bookId}}
+<br />
         </div>
       </file>
 
       <file name="chapter.html">
         <div>
-          controller: {{chapter.name}}<br />
-          Book Id: {{chapter.params.bookId}}<br />
+          controller: {{chapter.name}}
+<br />
+          Book Id: {{chapter.params.bookId}}
+<br />
           Chapter Id: {{chapter.params.chapterId}}
         </div>
       </file>

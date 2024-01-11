@@ -973,8 +973,10 @@
            <button ng-click="reset()">RESET</button>
            <button ng-click="update(user)">SAVE</button>
          </form>
-         <pre>form = {{user | json}}</pre>
-         <pre>leader = {{leader | json}}</pre>
+         <pre>form = {{user | json}}
+</pre>
+         <pre>leader = {{leader | json}}
+</pre>
        </div>
      </file>
      <file name="script.js">
@@ -1195,9 +1197,15 @@
              <br/>
              <input type="button" value="Compare" ng-click="compare()">
            </div>
-           User 1: <pre>{{user1 | json}}</pre>
-           User 2: <pre>{{user2 | json}}</pre>
-           Equal: <pre>{{result}}</pre>
+           User 1: <pre>
+{{user1 | json}}
+</pre>
+           User 2: <pre>
+{{user2 | json}}
+</pre>
+           Equal: <pre>
+{{result}}
+</pre>
          </form>
        </div>
      </file>
@@ -4203,7 +4211,9 @@
   * it into the current AngularJS scope.
   *
   * ```js
-  * var $div = $('<div ng-controller="MyCtrl">{{content.label}}</div>');
+  * var $div = $('<div ng-controller="MyCtrl">
+{{content.label}}
+</div>');
   * $(document.body).append($div);
   *
   * angular.element(document).injector().invoke(function($compile) {
@@ -7332,7 +7342,9 @@
   *       .component('test', {
   *         bindings: { date: '<' },
   *         template:
-  *           '<pre>{{ $ctrl.log | json }}</pre>',
+  *           '<pre>
+{{ $ctrl.log | json }}
+</pre>',
   *         controller: function() {
   *           var previousValue;
   *           this.log = [];
@@ -7360,7 +7372,9 @@
   *     <div ng-init="items = []">
   *       <button ng-click="items.push(items.length)">Add Item</button>
   *       <button ng-click="items = []">Reset Items</button>
-  *       <pre>{{ items }}</pre>
+  *       <pre>
+{{ items }}
+</pre>
   *       <test items="items"></test>
   *     </div>
   *   </file>
@@ -7369,7 +7383,9 @@
   *        .component('test', {
   *          bindings: { items: '<' },
   *          template:
-  *            '<pre>{{ $ctrl.log | json }}</pre>',
+  *            '<pre>
+{{ $ctrl.log | json }}
+</pre>',
   *          controller: function() {
   *            this.log = [];
   *
@@ -7630,7 +7646,9 @@
   *
   * Value may be:
   *
-  * * A string. For example `<div red-on-hover>{{delete_str}}</div>`.
+  * * A string. For example `<div red-on-hover>
+{{delete_str}}
+</div>`.
   * * A function which takes two arguments `tElement` and `tAttrs` (described in the `compile`
   *   function api below) and returns a string value.
   *
@@ -8077,14 +8095,18 @@
   * - If you are not asking the linking function to clone the template, create the DOM element(s)
   *   before you send them to the compiler and keep this reference around.
   *   ```js
-  *     var element = $compile('<p>{{total}}</p>')(scope);
+  *     var element = $compile('<p>
+{{total}}
+</p>')(scope);
   *   ```
   *
   * - if on the other hand, you need the element to be cloned, the view reference from the original
   *   example would not point to the clone, but rather to the original template that was cloned. In
   *   this case, you can access the clone via the cloneAttachFn:
   *   ```js
-  *     var templateElement = angular.element('<p>{{total}}</p>'),
+  *     var templateElement = angular.element('<p>
+{{total}}
+</p>'),
   *         scope = ....;
   *
   *     var clonedElement = $compile(templateElement)(scope, function(clonedElement, scope) {
@@ -8354,14 +8376,16 @@
     * ```js
     *   var myMod = angular.module(...);
     *   myMod.component('myComp', {
-    *     template: '<div>My name is {{$ctrl.name}}</div>',
+    *     template: '<div>My name is {{$ctrl.name}}
+</div>',
     *     controller: function() {
     *       this.name = 'shahar';
     *     }
     *   });
     *
     *   myMod.component('myComp', {
-    *     template: '<div>My name is {{$ctrl.name}}</div>',
+    *     template: '<div>My name is {{$ctrl.name}}
+</div>',
     *     bindings: {name: '@'}
     *   });
     *
@@ -12119,8 +12143,10 @@
        ng-click="updateModel('JSONP', 'https://angularjs.org/doesntexist')">
          Invalid JSONP
        </button>
-     <pre>http status code: {{status}}</pre>
-     <pre>http response data: {{data}}</pre>
+     <pre>http status code: {{status}}
+</pre>
+     <pre>http response data: {{data}}
+</pre>
    </div>
  </file>
  <file name="script.js">
@@ -13098,9 +13124,12 @@
       * <example name="interpolation">
       *  <file name="index.html">
       *    <div ng-init="username='A user'">
-      *      <p ng-init="apptitle='Escaping demo'">{{apptitle}}: \{\{ username = "defaced value"; \}\}
+      *      <p ng-init="apptitle='Escaping demo'">
+{{apptitle}}: \{\{ username = "defaced value"; \}\}
       *        </p>
-      *      <p><strong>{{username}}</strong> attempts to inject code which will deface the
+      *      <p><strong>
+{{username}}
+</strong> attempts to inject code which will deface the
       *        application, but fails to accomplish their task, because the server has correctly
       *        escaped the interpolation start/end markers with REVERSE SOLIDUS U+005C (backslash)
       *        characters.</p>
@@ -13418,8 +13447,12 @@
        *       <label>Date format: <input ng-model="format"></label> <hr/>
        *       Current time is: <span my-current-time="format"></span>
        *       <hr/>
-       *       Blood 1 : <font color='red'>{{blood_1}}</font>
-       *       Blood 2 : <font color='red'>{{blood_2}}</font>
+       *       Blood 1 : <font color='red'>
+{{blood_1}}
+</font>
+       *       Blood 2 : <font color='red'>
+{{blood_2}}
+</font>
        *       <button type="button" data-ng-click="fight()">Fight</button>
        *       <button type="button" data-ng-click="stopFight()">StopFight</button>
        *       <button type="button" data-ng-click="resetFight()">resetFight</button>
@@ -19707,7 +19740,9 @@
   *     exploit.
   *     <div class="well">
   *       <div ng-repeat="userComment in myCtrl.userComments">
-  *         <b>{{userComment.name}}</b>:
+  *         <b>
+{{userComment.name}}
+</b>:
   *         <span ng-bind-html="userComment.htmlComment" class="htmlComment"></span>
   *         <br>
   *       </div>
@@ -20906,8 +20941,12 @@
     <example name="$filter" module="filterExample">
       <file name="index.html">
         <div ng-controller="MainCtrl">
-         <h3>{{ originalText }}</h3>
-         <h3>{{ filteredText }}</h3>
+         <h3>
+{{ originalText }}
+</h3>
+         <h3>
+{{ filteredText }}
+</h3>
         </div>
       </file>
  
@@ -21067,8 +21106,12 @@
         <table id="searchTextResults">
           <tr><th>Name</th><th>Phone</th></tr>
           <tr ng-repeat="friend in friends | filter:searchText">
-            <td>{{friend.name}}</td>
-            <td>{{friend.phone}}</td>
+            <td>
+{{friend.name}}
+</td>
+            <td>
+{{friend.phone}}
+</td>
           </tr>
         </table>
         <hr>
@@ -21079,8 +21122,12 @@
         <table id="searchObjResults">
           <tr><th>Name</th><th>Phone</th></tr>
           <tr ng-repeat="friendObj in friends | filter:search:strict">
-            <td>{{friendObj.name}}</td>
-            <td>{{friendObj.phone}}</td>
+            <td>
+{{friendObj.name}}
+</td>
+            <td>
+{{friendObj.phone}}
+</td>
           </tr>
         </table>
       </file>
@@ -21282,9 +21329,15 @@
         </script>
         <div ng-controller="ExampleController">
           <input type="number" ng-model="amount" aria-label="amount"> <br>
-          default currency symbol ($): <span id="currency-default">{{amount | currency}}</span><br>
-          custom currency identifier (USD$): <span id="currency-custom">{{amount | currency:"USD$"}}</span><br>
-          no fractions (0): <span id="currency-no-fractions">{{amount | currency:"USD$":0}}</span>
+          default currency symbol ($): <span id="currency-default">
+{{amount | currency}}
+</span><br>
+          custom currency identifier (USD$): <span id="currency-custom">
+{{amount | currency:"USD$"}}
+</span><br>
+          no fractions (0): <span id="currency-no-fractions">
+{{amount | currency:"USD$":0}}
+</span>
         </div>
       </file>
       <file name="protractor.js" type="protractor">
@@ -21363,9 +21416,15 @@
         </script>
         <div ng-controller="ExampleController">
           <label>Enter number: <input ng-model='val'></label><br>
-          Default formatting: <span id='number-default'>{{val | number}}</span><br>
-          No fractions: <span>{{val | number:0}}</span><br>
-          Negative number: <span>{{-val | number:4}}</span>
+          Default formatting: <span id='number-default'>
+{{val | number}}
+</span><br>
+          No fractions: <span>
+{{val | number:0}}
+</span><br>
+          Negative number: <span>
+{{-val | number:4}}
+</span>
         </div>
       </file>
       <file name="protractor.js" type="protractor">
@@ -21806,14 +21865,30 @@
   * @example
     <example name="filter-date">
       <file name="index.html">
-        <span ng-non-bindable>{{1288323623006 | date:'medium'}}</span>:
-            <span>{{1288323623006 | date:'medium'}}</span><br>
-        <span ng-non-bindable>{{1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z'}}</span>:
-           <span>{{1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z'}}</span><br>
-        <span ng-non-bindable>{{1288323623006 | date:'MM/dd/yyyy @ h:mma'}}</span>:
-           <span>{{'1288323623006' | date:'MM/dd/yyyy @ h:mma'}}</span><br>
-        <span ng-non-bindable>{{1288323623006 | date:"MM/dd/yyyy 'at' h:mma"}}</span>:
-           <span>{{'1288323623006' | date:"MM/dd/yyyy 'at' h:mma"}}</span><br>
+        <span ng-non-bindable>
+{{1288323623006 | date:'medium'}}
+</span>:
+            <span>
+{{1288323623006 | date:'medium'}}
+</span><br>
+        <span ng-non-bindable>
+{{1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z'}}
+</span>:
+           <span>
+{{1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z'}}
+</span><br>
+        <span ng-non-bindable>
+{{1288323623006 | date:'MM/dd/yyyy @ h:mma'}}
+</span>:
+           <span>
+{{'1288323623006' | date:'MM/dd/yyyy @ h:mma'}}
+</span><br>
+        <span ng-non-bindable>
+{{1288323623006 | date:"MM/dd/yyyy 'at' h:mma"}}
+</span>:
+           <span>
+{{'1288323623006' | date:"MM/dd/yyyy 'at' h:mma"}}
+</span><br>
       </file>
       <file name="protractor.js" type="protractor">
         it('should format date', function() {
@@ -21925,8 +22000,12 @@
   * @example
     <example name="filter-json">
       <file name="index.html">
-        <pre id="default-spacing">{{ {'name':'value'} | json }}</pre>
-        <pre id="custom-spacing">{{ {'name':'value'} | json:4 }}</pre>
+        <pre id="default-spacing">
+{{ {'name':'value'} | json }}
+</pre>
+        <pre id="custom-spacing">
+{{ {'name':'value'} | json:4 }}
+</pre>
       </file>
       <file name="protractor.js" type="protractor">
         it('should jsonify filtered objects', function() {
@@ -21978,9 +22057,13 @@
         </script>
         <div ng-controller="ExampleController">
           <!-- This title should be formatted normally -->
-          <h1>{{title}}</h1>
+          <h1>
+{{title}}
+</h1>
           <!-- This title should be capitalized -->
-          <h1>{{title | uppercase}}</h1>
+          <h1>
+{{title | uppercase}}
+</h1>
         </div>
       </file>
     </example>
@@ -22029,17 +22112,20 @@
              Limit {{numbers}} to:
              <input type="number" step="1" ng-model="numLimit">
           </label>
-          <p>Output numbers: {{ numbers | limitTo:numLimit }}</p>
+          <p>Output numbers: {{ numbers | limitTo:numLimit }}
+</p>
           <label>
              Limit {{letters}} to:
              <input type="number" step="1" ng-model="letterLimit">
           </label>
-          <p>Output letters: {{ letters | limitTo:letterLimit }}</p>
+          <p>Output letters: {{ letters | limitTo:letterLimit }}
+</p>
           <label>
              Limit {{longNumber}} to:
              <input type="number" step="1" ng-model="longNumberLimit">
           </label>
-          <p>Output long number: {{ longNumber | limitTo:longNumberLimit }}</p>
+          <p>Output long number: {{ longNumber | limitTo:longNumberLimit }}
+</p>
         </div>
       </file>
       <file name="protractor.js" type="protractor">
@@ -22259,9 +22345,15 @@
               <th>Age</th>
             </tr>
             <tr ng-repeat="friend in friends | orderBy:'-age'">
-              <td>{{friend.name}}</td>
-              <td>{{friend.phone}}</td>
-              <td>{{friend.age}}</td>
+              <td>
+{{friend.name}}
+</td>
+              <td>
+{{friend.phone}}
+</td>
+              <td>
+{{friend.age}}
+</td>
             </tr>
           </table>
         </div>
@@ -22318,7 +22410,8 @@
     <example name="orderBy-dynamic" module="orderByExample2">
       <file name="index.html">
         <div ng-controller="ExampleController">
-          <pre>Sort by = {{propertyName}}; reverse = {{reverse}}</pre>
+          <pre>Sort by = {{propertyName}}; reverse = {{reverse}}
+</pre>
           <hr/>
           <button ng-click="propertyName = null; reverse = false">Set to unsorted</button>
           <hr/>
@@ -22338,9 +22431,15 @@
               </th>
             </tr>
             <tr ng-repeat="friend in friends | orderBy:propertyName:reverse">
-              <td>{{friend.name}}</td>
-              <td>{{friend.phone}}</td>
-              <td>{{friend.age}}</td>
+              <td>
+{{friend.name}}
+</td>
+              <td>
+{{friend.phone}}
+</td>
+              <td>
+{{friend.age}}
+</td>
             </tr>
           </table>
         </div>
@@ -22450,7 +22549,8 @@
     <example name="orderBy-call-manually" module="orderByExample3">
       <file name="index.html">
         <div ng-controller="ExampleController">
-          <pre>Sort by = {{propertyName}}; reverse = {{reverse}}</pre>
+          <pre>Sort by = {{propertyName}}; reverse = {{reverse}}
+</pre>
           <hr/>
           <button ng-click="sortBy(null)">Set to unsorted</button>
           <hr/>
@@ -22470,9 +22570,15 @@
               </th>
             </tr>
             <tr ng-repeat="friend in friends">
-              <td>{{friend.name}}</td>
-              <td>{{friend.phone}}</td>
-              <td>{{friend.age}}</td>
+              <td>
+{{friend.name}}
+</td>
+              <td>
+{{friend.phone}}
+</td>
+              <td>
+{{friend.age}}
+</td>
             </tr>
           </table>
         </div>
@@ -22593,8 +22699,12 @@
                 <th>Favorite Letter</th>
               </tr>
               <tr ng-repeat="friend in friends | orderBy:'favoriteLetter':false:localeSensitiveComparator">
-                <td>{{friend.name}}</td>
-                <td>{{friend.favoriteLetter}}</td>
+                <td>
+{{friend.name}}
+</td>
+                <td>
+{{friend.favoriteLetter}}
+</td>
               </tr>
             </table>
           </div>
@@ -22606,8 +22716,12 @@
                 <th>Favorite Letter</th>
               </tr>
               <tr ng-repeat="friend in friends | orderBy:'favoriteLetter'">
-                <td>{{friend.name}}</td>
-                <td>{{friend.favoriteLetter}}</td>
+                <td>
+{{friend.name}}
+</td>
+                <td>
+{{friend.favoriteLetter}}
+</td>
               </tr>
             </table>
           </div>
@@ -23762,11 +23876,16 @@
         <form name="myForm" ng-controller="FormController" class="my-form">
           userType: <input name="input" ng-model="userType" required>
           <span class="error" ng-show="myForm.input.$error.required">Required!</span><br>
-          <code>userType = {{userType}}</code><br>
-          <code>myForm.input.$valid = {{myForm.input.$valid}}</code><br>
-          <code>myForm.input.$error = {{myForm.input.$error}}</code><br>
-          <code>myForm.$valid = {{myForm.$valid}}</code><br>
-          <code>myForm.$error.required = {{!!myForm.$error.required}}</code><br>
+          <code>userType = {{userType}}
+</code><br>
+          <code>myForm.input.$valid = {{myForm.input.$valid}}
+</code><br>
+          <code>myForm.input.$error = {{myForm.input.$error}}
+</code><br>
+          <code>myForm.$valid = {{myForm.$valid}}
+</code><br>
+          <code>myForm.$error.required = {{!!myForm.$error.required}}
+</code><br>
          </form>
        </file>
        <file name="protractor.js" type="protractor">
@@ -24085,11 +24204,16 @@
               <span class="error" ng-show="myForm.input.$error.pattern">
                 Single word only!</span>
             </div>
-            <code>text = {{example.text}}</code><br/>
-            <code>myForm.input.$valid = {{myForm.input.$valid}}</code><br/>
-            <code>myForm.input.$error = {{myForm.input.$error}}</code><br/>
-            <code>myForm.$valid = {{myForm.$valid}}</code><br/>
-            <code>myForm.$error.required = {{!!myForm.$error.required}}</code><br/>
+            <code>text = {{example.text}}
+</code><br/>
+            <code>myForm.input.$valid = {{myForm.input.$valid}}
+</code><br/>
+            <code>myForm.input.$error = {{myForm.input.$error}}
+</code><br/>
+            <code>myForm.$valid = {{myForm.$valid}}
+</code><br/>
+            <code>myForm.$error.required = {{!!myForm.$error.required}}
+</code><br/>
            </form>
          </file>
          <file name="protractor.js" type="protractor">
@@ -24180,11 +24304,16 @@
              <span class="error" ng-show="myForm.input.$error.date">
                  Not a valid date!</span>
             </div>
-            <tt>value = {{example.value | date: "yyyy-MM-dd"}}</tt><br/>
-            <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
-            <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
-            <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
-            <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
+            <tt>value = {{example.value | date: "yyyy-MM-dd"}}
+</tt><br/>
+            <tt>myForm.input.$valid = {{myForm.input.$valid}}
+</tt><br/>
+            <tt>myForm.input.$error = {{myForm.input.$error}}
+</tt><br/>
+            <tt>myForm.$valid = {{myForm.$valid}}
+</tt><br/>
+            <tt>myForm.$error.required = {{!!myForm.$error.required}}
+</tt><br/>
         </form>
       </file>
       <file name="protractor.js" type="protractor">
@@ -24282,11 +24411,16 @@
            <span class="error" ng-show="myForm.input.$error.datetimelocal">
                Not a valid date!</span>
          </div>
-         <tt>value = {{example.value | date: "yyyy-MM-ddTHH:mm:ss"}}</tt><br/>
-         <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
-         <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
-         <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
-         <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
+         <tt>value = {{example.value | date: "yyyy-MM-ddTHH:mm:ss"}}
+</tt><br/>
+         <tt>myForm.input.$valid = {{myForm.input.$valid}}
+</tt><br/>
+         <tt>myForm.input.$error = {{myForm.input.$error}}
+</tt><br/>
+         <tt>myForm.$valid = {{myForm.$valid}}
+</tt><br/>
+         <tt>myForm.$error.required = {{!!myForm.$error.required}}
+</tt><br/>
        </form>
      </file>
      <file name="protractor.js" type="protractor">
@@ -24385,11 +24519,16 @@
            <span class="error" ng-show="myForm.input.$error.time">
                Not a valid date!</span>
          </div>
-         <tt>value = {{example.value | date: "HH:mm:ss"}}</tt><br/>
-         <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
-         <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
-         <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
-         <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
+         <tt>value = {{example.value | date: "HH:mm:ss"}}
+</tt><br/>
+         <tt>myForm.input.$valid = {{myForm.input.$valid}}
+</tt><br/>
+         <tt>myForm.input.$error = {{myForm.input.$error}}
+</tt><br/>
+         <tt>myForm.$valid = {{myForm.$valid}}
+</tt><br/>
+         <tt>myForm.$error.required = {{!!myForm.$error.required}}
+</tt><br/>
       </form>
     </file>
     <file name="protractor.js" type="protractor">
@@ -24489,11 +24628,16 @@
            <span class="error" ng-show="myForm.input.$error.week">
                Not a valid date!</span>
          </div>
-         <tt>value = {{example.value | date: "yyyy-Www"}}</tt><br/>
-         <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
-         <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
-         <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
-         <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
+         <tt>value = {{example.value | date: "yyyy-Www"}}
+</tt><br/>
+         <tt>myForm.input.$valid = {{myForm.input.$valid}}
+</tt><br/>
+         <tt>myForm.input.$error = {{myForm.input.$error}}
+</tt><br/>
+         <tt>myForm.$valid = {{myForm.$valid}}
+</tt><br/>
+         <tt>myForm.$error.required = {{!!myForm.$error.required}}
+</tt><br/>
        </form>
      </file>
      <file name="protractor.js" type="protractor">
@@ -24592,11 +24736,16 @@
           <span class="error" ng-show="myForm.input.$error.month">
              Not a valid month!</span>
         </div>
-        <tt>value = {{example.value | date: "yyyy-MM"}}</tt><br/>
-        <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
-        <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
-        <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
-        <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
+        <tt>value = {{example.value | date: "yyyy-MM"}}
+</tt><br/>
+        <tt>myForm.input.$valid = {{myForm.input.$valid}}
+</tt><br/>
+        <tt>myForm.input.$error = {{myForm.input.$error}}
+</tt><br/>
+        <tt>myForm.$valid = {{myForm.$valid}}
+</tt><br/>
+        <tt>myForm.$error.required = {{!!myForm.$error.required}}
+</tt><br/>
       </form>
     </file>
     <file name="protractor.js" type="protractor">
@@ -24721,11 +24870,16 @@
               <span class="error" ng-show="myForm.input.$error.number">
                 Not valid number!</span>
             </div>
-            <tt>value = {{example.value}}</tt><br/>
-            <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
-            <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
-            <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
-            <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
+            <tt>value = {{example.value}}
+</tt><br/>
+            <tt>myForm.input.$valid = {{myForm.input.$valid}}
+</tt><br/>
+            <tt>myForm.input.$error = {{myForm.input.$error}}
+</tt><br/>
+            <tt>myForm.$valid = {{myForm.$valid}}
+</tt><br/>
+            <tt>myForm.$error.required = {{!!myForm.$error.required}}
+</tt><br/>
            </form>
          </file>
          <file name="protractor.js" type="protractor">
@@ -24818,12 +24972,18 @@
               <span class="error" ng-show="myForm.input.$error.url">
                 Not valid url!</span>
             </div>
-            <tt>text = {{url.text}}</tt><br/>
-            <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
-            <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
-            <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
-            <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
-            <tt>myForm.$error.url = {{!!myForm.$error.url}}</tt><br/>
+            <tt>text = {{url.text}}
+</tt><br/>
+            <tt>myForm.input.$valid = {{myForm.input.$valid}}
+</tt><br/>
+            <tt>myForm.input.$error = {{myForm.input.$error}}
+</tt><br/>
+            <tt>myForm.$valid = {{myForm.$valid}}
+</tt><br/>
+            <tt>myForm.$error.required = {{!!myForm.$error.required}}
+</tt><br/>
+            <tt>myForm.$error.url = {{!!myForm.$error.url}}
+</tt><br/>
            </form>
          </file>
          <file name="protractor.js" type="protractor">
@@ -24917,12 +25077,18 @@
                 <span class="error" ng-show="myForm.input.$error.email">
                   Not valid email!</span>
               </div>
-              <tt>text = {{email.text}}</tt><br/>
-              <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
-              <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
-              <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
-              <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
-              <tt>myForm.$error.email = {{!!myForm.$error.email}}</tt><br/>
+              <tt>text = {{email.text}}
+</tt><br/>
+              <tt>myForm.input.$valid = {{myForm.input.$valid}}
+</tt><br/>
+              <tt>myForm.input.$error = {{myForm.input.$error}}
+</tt><br/>
+              <tt>myForm.$valid = {{myForm.$valid}}
+</tt><br/>
+              <tt>myForm.$error.required = {{!!myForm.$error.required}}
+</tt><br/>
+              <tt>myForm.$error.email = {{!!myForm.$error.email}}
+</tt><br/>
             </form>
           </file>
          <file name="protractor.js" type="protractor">
@@ -25000,7 +25166,8 @@
               <input type="radio" ng-model="color.name" value="blue">
               Blue
             </label><br/>
-            <tt>color = {{color.name | json}}</tt><br/>
+            <tt>color = {{color.name | json}}
+</tt><br/>
            </form>
            Note that `ng-value="specialValue"` sets radio item's value to be the value of `$scope.specialValue`.
          </file>
@@ -25105,9 +25272,15 @@
              Model as number: <input type="number" ng-model="value"><br>
              Min: <input type="number" ng-model="min"><br>
              Max: <input type="number" ng-model="max"><br>
-             value = <code>{{value}}</code><br/>
-             myForm.range.$valid = <code>{{myForm.range.$valid}}</code><br/>
-             myForm.range.$error = <code>{{myForm.range.$error}}</code>
+             value = <code>
+{{value}}
+</code><br/>
+             myForm.range.$valid = <code>
+{{myForm.range.$valid}}
+</code><br/>
+             myForm.range.$error = <code>
+{{myForm.range.$error}}
+</code>
            </form>
          </file>
        </example>
@@ -25131,9 +25304,15 @@
              Model as number: <input type="number" ng-model="value"><br>
              Min: <input type="number" ng-model="min"><br>
              Max: <input type="number" ng-model="max"><br>
-             value = <code>{{value}}</code><br/>
-             myForm.range.$valid = <code>{{myForm.range.$valid}}</code><br/>
-             myForm.range.$error = <code>{{myForm.range.$error}}</code>
+             value = <code>
+{{value}}
+</code><br/>
+             myForm.range.$valid = <code>
+{{myForm.range.$valid}}
+</code><br/>
+             myForm.range.$error = <code>
+{{myForm.range.$error}}
+</code>
            </form>
          </file>
        </example>
@@ -25175,8 +25354,10 @@
               <input type="checkbox" ng-model="checkboxModel.value2"
                      ng-true-value="'YES'" ng-false-value="'NO'">
              </label><br/>
-            <tt>value1 = {{checkboxModel.value1}}</tt><br/>
-            <tt>value2 = {{checkboxModel.value2}}</tt><br/>
+            <tt>value1 = {{checkboxModel.value1}}
+</tt><br/>
+            <tt>value2 = {{checkboxModel.value2}}
+</tt><br/>
            </form>
          </file>
          <file name="protractor.js" type="protractor">
@@ -25979,15 +26160,24 @@
             </div>
           </form>
           <hr>
-          <tt>user = {{user}}</tt><br/>
-          <tt>myForm.userName.$valid = {{myForm.userName.$valid}}</tt><br/>
-          <tt>myForm.userName.$error = {{myForm.userName.$error}}</tt><br/>
-          <tt>myForm.lastName.$valid = {{myForm.lastName.$valid}}</tt><br/>
-          <tt>myForm.lastName.$error = {{myForm.lastName.$error}}</tt><br/>
-          <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
-          <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
-          <tt>myForm.$error.minlength = {{!!myForm.$error.minlength}}</tt><br/>
-          <tt>myForm.$error.maxlength = {{!!myForm.$error.maxlength}}</tt><br/>
+          <tt>user = {{user}}
+</tt><br/>
+          <tt>myForm.userName.$valid = {{myForm.userName.$valid}}
+</tt><br/>
+          <tt>myForm.userName.$error = {{myForm.userName.$error}}
+</tt><br/>
+          <tt>myForm.lastName.$valid = {{myForm.lastName.$valid}}
+</tt><br/>
+          <tt>myForm.lastName.$error = {{myForm.lastName.$error}}
+</tt><br/>
+          <tt>myForm.$valid = {{myForm.$valid}}
+</tt><br/>
+          <tt>myForm.$error.required = {{!!myForm.$error.required}}
+</tt><br/>
+          <tt>myForm.$error.minlength = {{!!myForm.$error.minlength}}
+</tt><br/>
+          <tt>myForm.$error.maxlength = {{!!myForm.$error.maxlength}}
+</tt><br/>
         </div>
        </file>
        <file name="protractor.js" type="protractor">
@@ -26105,7 +26295,8 @@
                       id="{{name}}"
                       name="favorite">
              </label>
-           <div>You chose {{my.favorite}}</div>
+           <div>You chose {{my.favorite}}
+</div>
          </form>
        </file>
        <file name="protractor.js" type="protractor">
@@ -26238,7 +26429,9 @@
   *
   * @element ANY
   * @param {string} ngBindTemplate template of form
-  *   <tt>{{</tt> <tt>expression</tt> <tt>}}</tt> to eval.
+  *   <tt>
+{{</tt> <tt>expression</tt> <tt>}}
+</tt> to eval.
   *
   * @example
   * Try it here: enter text in text box and watch the greeting change.
@@ -26405,8 +26598,10 @@
   *       <input type="checkbox" ng-model="confirmed" ng-change="change()" id="ng-change-example1" />
   *       <input type="checkbox" ng-model="confirmed" id="ng-change-example2" />
   *       <label for="ng-change-example2">Confirmed</label><br />
-  *       <tt>debug = {{confirmed}}</tt><br/>
-  *       <tt>counter = {{counter}}</tt><br/>
+  *       <tt>debug = {{confirmed}}
+</tt><br/>
+  *       <tt>counter = {{counter}}
+</tt><br/>
   *     </div>
   *   </file>
   *   <file name="protractor.js" type="protractor">
@@ -26943,8 +27138,12 @@
   * @example
     <example name="ng-cloak">
       <file name="index.html">
-         <div id="template1" ng-cloak>{{ 'hello' }}</div>
-         <div id="template2" class="ng-cloak">{{ 'world' }}</div>
+         <div id="template1" ng-cloak>
+{{ 'hello' }}
+</div>
+         <div id="template2" class="ng-cloak">
+{{ 'world' }}
+</div>
       </file>
       <file name="protractor.js" type="protractor">
         it('should remove the template directive and css class', function() {
@@ -27705,8 +27904,10 @@
  
         <p>Typing in the input box below updates the keycode</p>
         <input ng-keyup="event=$event">
-        <p>event keyCode: {{ event.keyCode }}</p>
-        <p>event altKey: {{ event.altKey }}</p>
+        <p>event keyCode: {{ event.keyCode }}
+</p>
+        <p>event altKey: {{ event.altKey }}
+</p>
       </file>
     </example>
   */
@@ -27779,7 +27980,8 @@
          Enter text and hit enter:
          <input type="text" ng-model="text" name="text" />
          <input type="submit" id="submit" value="Submit" />
-         <pre>list={{list}}</pre>
+         <pre>list={{list}}
+</pre>
        </form>
       </file>
       <file name="protractor.js" type="protractor">
@@ -28093,7 +28295,9 @@
         <select ng-model="template" ng-options="t.name for t in templates">
          <option value="">(blank)</option>
         </select>
-        url of the template: <code>{{template.url}}</code>
+        url of the template: <code>
+{{template.url}}
+</code>
         <hr/>
         <div class="slide-animate-container">
           <div class="slide-animate" ng-include="template.url"></div>
@@ -28456,11 +28660,16 @@
   *        Required!</span>
   *      </span>
   *      <br>
-  *      <tt>names = {{names}}</tt><br/>
-  *      <tt>myForm.namesInput.$valid = {{myForm.namesInput.$valid}}</tt><br/>
-  *      <tt>myForm.namesInput.$error = {{myForm.namesInput.$error}}</tt><br/>
-  *      <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
-  *      <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
+  *      <tt>names = {{names}}
+</tt><br/>
+  *      <tt>myForm.namesInput.$valid = {{myForm.namesInput.$valid}}
+</tt><br/>
+  *      <tt>myForm.namesInput.$error = {{myForm.namesInput.$error}}
+</tt><br/>
+  *      <tt>myForm.$valid = {{myForm.$valid}}
+</tt><br/>
+  *      <tt>myForm.$error.required = {{!!myForm.$error.required}}
+</tt><br/>
   *     </form>
   *   </file>
   *   <file name="protractor.js" type="protractor">
@@ -28492,7 +28701,9 @@
   * <example name="ngList-directive-newlines">
   *   <file name="index.html">
   *    <textarea ng-model="list" ng-list="&#10;" ng-trim="false"></textarea>
-  *    <pre>{{ list | json }}</pre>
+  *    <pre>
+{{ list | json }}
+</pre>
   *   </file>
   *   <file name="protractor.js" type="protractor">
   *     it("should split the text by newlines", function() {
@@ -29490,7 +29701,9 @@
          </div>
          <div>
            Model:<br>
-           <pre>{{selectedFruit | json}}</pre>
+           <pre>
+{{selectedFruit | json}}
+</pre>
          </div>
        </div>
       </file>
@@ -29548,7 +29761,9 @@
           <input type="search" ng-model="$ctrl.searchTerm" />
           <ul>
             <li ng-repeat="item in $ctrl.items | filter:$ctrl.searchTerm">
-              <button ng-click="$ctrl.selectItem(item)">{{ item.name }}</button>
+              <button ng-click="$ctrl.selectItem(item)">
+{{ item.name }}
+</button>
             </li>
           </ul>
         </div>
@@ -30330,8 +30545,10 @@
   *
    <example name="ng-non-bindable">
      <file name="index.html">
-       <div>Normal: {{1 + 2}}</div>
-       <div ng-non-bindable>Ignored: {{1 + 2}}</div>
+       <div>Normal: {{1 + 2}}
+</div>
+       <div ng-non-bindable>Ignored: {{1 + 2}}
+</div>
      </file>
      <file name="protractor.js" type="protractor">
       it('should check ng-non-bindable', function() {
@@ -31111,7 +31328,9 @@
   * You can use a set of closed braces (`{}`) as a placeholder for the number that you want substituted
   * into pluralized strings. In the previous example, AngularJS will replace `{}` with
   * <span ng-non-bindable>`{{personCount}}`</span>. The closed braces `{}` is a placeholder
-  * for <span ng-non-bindable>{{numberExpression}}</span>.
+  * for <span ng-non-bindable>
+{{numberExpression}}
+</span>.
   *
   * If no rule is defined for a category, then an empty string is displayed and a warning is generated.
   * Note that some locales define more categories than `one` and `other`. For example, fr-fr defines `few` and `many`.
@@ -32386,7 +32605,8 @@
          <input type="button" value="clear" ng-click="myStyle={}">
          <br/>
          <span ng-style="myStyle">Sample Text</span>
-         <pre>myStyle={{myStyle}}</pre>
+         <pre>myStyle={{myStyle}}
+</pre>
       </file>
       <file name="style.css">
         span {
@@ -32481,7 +32701,8 @@
        <div ng-controller="ExampleController">
          <select ng-model="selection" ng-options="item for item in items">
          </select>
-         <code>selection={{selection}}</code>
+         <code>selection={{selection}}
+</code>
          <hr/>
          <div class="animate-switch-container"
            ng-switch on="selection">
@@ -32673,7 +32894,9 @@
   *             transclude: true,
   *             scope: { title:'@' },
   *             template: '<div style="border: 1px solid black;">' +
-  *                         '<div style="background-color: gray">{{title}}</div>' +
+  *                         '<div style="background-color: gray">
+{{title}}
+</div>' +
   *                         '<ng-transclude></ng-transclude>' +
   *                       '</div>'
   *           };
@@ -32686,7 +32909,9 @@
   *     <div ng-controller="ExampleController">
   *       <input ng-model="title" aria-label="title"> <br/>
   *       <textarea ng-model="text" aria-label="text"></textarea> <br/>
-  *       <pane title="{{title}}"><span>{{text}}</span></pane>
+  *       <pane title="{{title}}"><span>
+{{text}}
+</span></pane>
   *     </div>
   *   </file>
   *   <file name="protractor.js" type="protractor">
@@ -32754,8 +32979,12 @@
   *      <input ng-model="title" aria-label="title"> <br/>
   *      <textarea ng-model="text" aria-label="text"></textarea> <br/>
   *      <pane>
-  *        <pane-title><a ng-href="{{link}}">{{title}}</a></pane-title>
-  *        <pane-body><p>{{text}}</p></pane-body>
+  *        <pane-title><a ng-href="{{link}}">
+{{title}}
+</a></pane-title>
+  *        <pane-body><p>
+{{text}}
+</p></pane-body>
   *      </pane>
   *    </div>
   *   </file>
@@ -33500,7 +33729,8 @@
   *       <option value="option-2">Option 2</option>
   *     </select><br>
   *     <button ng-click="forceUnknownOption()">Force unknown option</button><br>
-  *     <tt>singleSelect = {{data.singleSelect}}</tt>
+  *     <tt>singleSelect = {{data.singleSelect}}
+</tt>
   *
   *     <hr>
   *     <label for="multipleSelect"> Multiple select: </label><br>
@@ -33509,7 +33739,8 @@
   *       <option value="option-2">Option 2</option>
   *       <option value="option-3">Option 3</option>
   *     </select><br>
-  *     <tt>multipleSelect = {{data.multipleSelect}}</tt><br/>
+  *     <tt>multipleSelect = {{data.multipleSelect}}
+</tt><br/>
   *   </form>
   * </div>
   * </file>
@@ -33537,11 +33768,14 @@
   *   <form name="myForm">
   *     <label for="repeatSelect"> Repeat select: </label>
   *     <select name="repeatSelect" id="repeatSelect" ng-model="data.model">
-  *       <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
+  *       <option ng-repeat="option in data.availableOptions" value="{{option.id}}">
+{{option.name}}
+</option>
   *     </select>
   *   </form>
   *   <hr>
-  *   <tt>model = {{data.model}}</tt><br/>
+  *   <tt>model = {{data.model}}
+</tt><br/>
   * </div>
   * </file>
   * <file name="app.js">
@@ -33567,11 +33801,14 @@
   *   <form name="myForm">
   *     <label for="ngvalueselect"> ngvalue select: </label>
   *     <select size="6" name="ngvalueselect" ng-model="data.model" multiple>
-  *       <option ng-repeat="option in data.availableOptions" ng-value="option.value">{{option.name}}</option>
+  *       <option ng-repeat="option in data.availableOptions" ng-value="option.value">
+{{option.name}}
+</option>
   *     </select>
   *   </form>
   *   <hr>
-  *   <pre>model = {{data.model | json}}</pre><br/>
+  *   <pre>model = {{data.model | json}}
+</pre><br/>
   * </div>
   * </file>
   * <file name="app.js">
@@ -33606,7 +33843,8 @@
   *       ng-model="data.selectedOption"></select>
   *   </form>
   *   <hr>
-  *   <tt>option = {{data.selectedOption}}</tt><br/>
+  *   <tt>option = {{data.selectedOption}}
+</tt><br/>
   * </div>
   * </file>
   * <file name="app.js">
@@ -33863,8 +34101,12 @@
   *         <label for="input">This input must be filled if `required` is true: </label>
   *         <input type="text" ng-model="model" id="input" name="input" ng-required="required" /><br>
   *         <hr>
-  *         required error set? = <code>{{form.input.$error.required}}</code><br>
-  *         model = <code>{{model}}</code>
+  *         required error set? = <code>
+{{form.input.$error.required}}
+</code><br>
+  *         model = <code>
+{{model}}
+</code>
   *       </form>
   *     </div>
   *   </file>
@@ -33962,8 +34204,12 @@
   *         <label for="input">This input is restricted by the current pattern: </label>
   *         <input type="text" ng-model="model" id="input" name="input" ng-pattern="regex" /><br>
   *         <hr>
-  *         input valid? = <code>{{form.input.$valid}}</code><br>
-  *         model = <code>{{model}}</code>
+  *         input valid? = <code>
+{{form.input.$valid}}
+</code><br>
+  *         model = <code>
+{{model}}
+</code>
   *       </form>
   *     </div>
   *   </file>
@@ -34064,8 +34310,12 @@
   *         <label for="input">This input is restricted by the current maxlength: </label>
   *         <input type="text" ng-model="model" id="input" name="input" ng-maxlength="maxlength" /><br>
   *         <hr>
-  *         input valid? = <code>{{form.input.$valid}}</code><br>
-  *         model = <code>{{model}}</code>
+  *         input valid? = <code>
+{{form.input.$valid}}
+</code><br>
+  *         model = <code>
+{{model}}
+</code>
   *       </form>
   *     </div>
   *   </file>
@@ -34155,8 +34405,12 @@
   *         <label for="input">This input is restricted by the current minlength: </label>
   *         <input type="text" ng-model="model" id="input" name="input" ng-minlength="minlength" /><br>
   *         <hr>
-  *         input valid? = <code>{{form.input.$valid}}</code><br>
-  *         model = <code>{{model}}</code>
+  *         input valid? = <code>
+{{form.input.$valid}}
+</code><br>
+  *         model = <code>
+{{model}}
+</code>
   *       </form>
   *     </div>
   *   </file>

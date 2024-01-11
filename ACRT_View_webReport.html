@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <script src="JS/AngularJS1.6.9/angular.js"></script>
   <script src="JS/angular-sanitize.js"></script>
@@ -15,8 +15,8 @@
 
   <body ng-app="acrt" ng-controller="acrtFormCtrl">
     <a href="#helpID" id="skipID" class="skip" autofocus
-      >Skip to Main Content
-    </a>
+      >Skip to Main Content</a
+    >
     <div>
       <img
         hidden
@@ -64,14 +64,14 @@
 
     <main style="margin-left: 1em" id="helpID">
       <form id="webTestResult">
-        <h1>View {{companyname}} Baseline Alignment Report</h1>
+        <h1>View {{ companyname }} Baseline Alignment Report</h1>
         <!--   To make sure you have the latest version of ACRT, check either 
-  <a title="ACRT GitHub Repository" href= "https://github.com/Section508Coordinators/ACRT " target="_blank"   id="helpID"> GitHub </a>  &nbsp;(all users) 
-  or <a title="ACRT Bitbucket Repository" href= "https://maestro.dhs.gov/stash/projects/APPDEV/repos/acrt/browse/acrt" target="_blank"   id="bitbucketSrc">BitBucket </a>  &nbsp;(DHS users) before completing the form. 
-  <br />
+                    <a title="ACRT GitHub Repository" href= "https://github.com/Section508Coordinators/ACRT " target="_blank"   id="helpID"> GitHub </a>  &nbsp;(all users) 
+                    or <a title="ACRT Bitbucket Repository" href= "https://maestro.dhs.gov/stash/projects/APPDEV/repos/acrt/browse/acrt" target="_blank"   id="bitbucketSrc">BitBucket </a>  &nbsp;(DHS users) before completing the form. 
+                    <br />
   
-  <br />
- -->
+                    <br />
+                -->
         Refer to the
         <a
           title="BART Guide"
@@ -106,7 +106,9 @@
           <li>
             At least one valid test result must be included to view a report.
           </li>
-          <li><strong>Use 'Choose File' to select a JSON.</strong></li>
+          <li>
+            <strong>Use 'Choose File' to select a JSON.</strong>
+          </li>
           <li>
             Sample JSONs with test results are available in the Resources
             folder:
@@ -155,7 +157,9 @@
 
         <br />
 
-        <strong> <span id="selMsg" ng-show="fileInput1"> </span></strong>
+        <strong>
+          <span id="selMsg" ng-show="fileInput1"> </span>
+        </strong>
 
         <br />
 
@@ -177,8 +181,11 @@
           Load Results
         </button>
         <!-- 
-      <br />
-      You have selected <strong>{{evalMethod}} </strong> Version <strong class="hdnMsg">{{evalMethodVrsn}}</strong> -->
+                    <br />
+                    You have selected <strong>
+{{evalMethod}} </strong> Version <strong class="hdnMsg">
+{{evalMethodVrsn}}
+</strong> -->
         <p id="afterDwnloded">
           <img
             id="dwnldConfm"
@@ -189,7 +196,9 @@
             alt="Checkmark"
             onerror="this.style.display='none';"
           />
-          <span id="msg1"> <strong> </strong></span>
+          <span id="msg1">
+            <strong> </strong>
+          </span>
         </p>
         <div ng-show="dataLoaded">
           <fieldset style="margin-left: 1em">
@@ -233,10 +242,10 @@
                   size="50"
                 />
                 <!-- 
-                <br />
-                <label for="ownerID">Product Owner/Vendor: </label> 
-                <br />
-                <input type="string" ng-model="versionID" class="betnTags" id="versionID" name="Entered Product Owner/Vendor" ng-readonly="true" size="50"> -->
+                                    <br />
+                                    <label for="ownerID">Product Owner/Vendor: </label> 
+                                    <br />
+                                    <input type="string" ng-model="versionID" class="betnTags" id="versionID" name="Entered Product Owner/Vendor" ng-readonly="true" size="50"> -->
 
                 <br />
                 <label for="productType"> Process Type: </label>
@@ -376,8 +385,8 @@
                 />
 
                 <br />
-                <label for="testScope"
-                  >All alignment results will be shared publicly on
+                <label for="testScope">
+                  All alignment results will be shared publicly on
                   Section508.gov. Please describe any concerns.
                 </label>
                 <br />
@@ -399,8 +408,6 @@
         </div>
 
         <br />
-
-        &nbsp;
 
         <div id="displayTestRslt" hidden>
           <h2>Baseline Alignment Validation Results</h2>
@@ -424,7 +431,7 @@
             <div ng-show="wcagRprt">
               <table class="table" id="th1" style="font-size: 93%">
                 <caption>
-                  <strong>{{companyname}} Baseline Alignment Report </strong>
+                  <strong> {{ companyname }} Baseline Alignment Report </strong>
                 </caption>
                 <thead>
                   <tr>
@@ -461,56 +468,58 @@
                 <tbody ng-repeat="record in jsonData">
                   <tr ng-repeat="test in record.Criteria" ng-if="filterResult1">
                     <th scope="row">
-                      <div class="widetd1">{{$index+1}}</div>
+                      <div class="widetd1">
+                        {{ $index + 1 }}
+                      </div>
                       <!-- ng-if='original' -->
                     </th>
                     <td>
                       <div
                         class="widetd5"
-                        id="testID{{$index}}"
+                        id="testID{{ $index }}"
                         title="Test Case ID"
                         nowrap
                       >
-                        <a href="{{test.TestCaseURL}}" target="testcase"
-                          >{{TestID[$index]}}</a
-                        >
+                        <a href="{{ test.TestCaseURL }}" target="testcase">
+                          {{ TestID[$index] }}
+                        </a>
                       </div>
                     </td>
                     <td>
-                      <div class="widetd3" id="testdescription{{$index}}">
-                        {{TestName[$index]}}
+                      <div class="widetd3" id="testdescription{{ $index }}">
+                        {{ TestName[$index] }}
                       </div>
                     </td>
                     <td>
-                      <div class="widetd3" id="testfile{{$index}}">
-                        <a href="{{test.TestFileURL}}" target="testfile"
-                          >{{test.TestFile}}</a
-                        >
+                      <div class="widetd3" id="testfile{{ $index }}">
+                        <a href="{{ test.TestFileURL }}" target="testfile">
+                          {{ test.TestFile }}
+                        </a>
                       </div>
                     </td>
                     <td nowrap>
-                      <div class="widetd3" id="expected{{$index}}">
-                        {{test.ExpectedResult}}
+                      <div class="widetd3" id="expected{{ $index }}">
+                        {{ test.ExpectedResult }}
                       </div>
                     </td>
                     <td name="Test Process Result">
-                      <div class="widetd3" id="testresult{{$index}}">
-                        {{TestResult[$index]}}
+                      <div class="widetd3" id="testresult{{ $index }}">
+                        {{ TestResult[$index] }}
                       </div>
                     </td>
                     <td>
-                      <div class="widetd3" id="testprocess{{$index}}">
-                        {{TestProcess[$index]}}
+                      <div class="widetd3" id="testprocess{{ $index }}">
+                        {{ TestProcess[$index] }}
                       </div>
                     </td>
                     <td>
-                      <div class="widetd3" id="testercomment{{$index}}">
-                        {{TesterComment[$index]}}
+                      <div class="widetd3" id="testercomment{{ $index }}">
+                        {{ TesterComment[$index] }}
                       </div>
                     </td>
                     <td>
-                      <div class="widetd3" id="aligned{{$index}}">
-                        {{test.Aligned}}
+                      <div class="widetd3" id="aligned{{ $index }}">
+                        {{ test.Aligned }}
                       </div>
                     </td>
                   </tr>
@@ -546,6 +555,8 @@
     <script>
       function myFunction() {
         window.print();
+        // This prettier error is a bug that should be resolved in prettier v3.2 https://github.com/prettier/prettier/pull/15777#issuecomment-1880461033
+        // eslint-disable-next-line prettier/prettier
       }
     </script>
   </body>

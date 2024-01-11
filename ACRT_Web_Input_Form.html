@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -66,10 +66,10 @@
         <div id="helpID">
           <h2>Create Report</h2>
           <!--
-  To make sure you have the latest version of ACRT, check either 
-  <a title="ACRT GitHub Repository" href= "https://github.com/Section508Coordinators/ACRT " target="_blank"   id="helpID"> GitHub </a>  &nbsp;(all users) 
-  or <a title="ACRT Bitbucket Repository" href= "https://maestro.dhs.gov/stash/projects/APPDEV/repos/acrt/browse/acrt" target="_blank"   id="bitbucketSrc">BitBucket </a>  &nbsp;(DHS users) before completing the form. <br><br>
-  <p>Refer to the <a title="ACRT User Guide" href="./Resources/ACRTTrainingManual.pdf" target="_blank"  id="helpID" style="display:inline-block; color:blue;">ACRT User Guide </a> &nbsp;for complete instructions.</p> -->
+                        To make sure you have the latest version of ACRT, check either 
+                        <a title="ACRT GitHub Repository" href= "https://github.com/Section508Coordinators/ACRT " target="_blank"   id="helpID"> GitHub </a>  &nbsp;(all users) 
+                        or <a title="ACRT Bitbucket Repository" href= "https://maestro.dhs.gov/stash/projects/APPDEV/repos/acrt/browse/acrt" target="_blank"   id="bitbucketSrc">BitBucket </a>  &nbsp;(DHS users) before completing the form. <br><br>
+                        <p>Refer to the <a title="ACRT User Guide" href="./Resources/ACRTTrainingManual.pdf" target="_blank"  id="helpID" style="display:inline-block; color:blue;">ACRT User Guide </a> &nbsp;for complete instructions.</p> -->
           <h3>Developer Updates/Notes</h3>
           <ul>
             <li>
@@ -99,10 +99,10 @@
               filename.
             </li>
             <!-- KE: FIXED!
-        <ul>        	
-          <li>Notes for Baseline JSON file: expand "dna" to "does not apply" (for alignment comparison)</li>
-          <li>Notes for Baseline JSON file: remove quote marks from Test Case Description (to avoid JSON write errors).</li>
-        </ul> -->
+                            <ul>        	
+                            <li>Notes for Baseline JSON file: expand "dna" to "does not apply" (for alignment comparison)</li>
+                            <li>Notes for Baseline JSON file: remove quote marks from Test Case Description (to avoid JSON write errors).</li>
+                            </ul> -->
             <li>
               Sample JSONs with test results are also available in the Resources
               folder:
@@ -145,7 +145,9 @@
 
           <br />
 
-          <strong><span id="selMsg" ng-show="fileInput1"> </span></strong>
+          <strong>
+            <span id="selMsg" ng-show="fileInput1"> </span>
+          </strong>
 
           <br />
 
@@ -181,7 +183,9 @@
               alt="checkmark"
               onerror="this.style.display='none';"
             />
-            <span id="msg"><strong></strong></span>
+            <span id="msg">
+              <strong></strong>
+            </span>
           </p>
         </div>
 
@@ -191,8 +195,8 @@
 
             <div id="hdnMsgId">
               <!-- <p ng-if="edit">
-	 <strong  class="hdnMsg">Please edit/update as needed below. </strong>
-	 </p> -->
+                                <strong  class="hdnMsg">Please edit/update as needed below. </strong>
+                                </p> -->
               <p ng-show="original">
                 <!--<strong class="hdnMsg"> Please fill all required fields to save information from this page. </strong> -->
                 <strong>
@@ -203,21 +207,23 @@
                 <br />
 
                 A red asterisk
-                <strong>(<span class="required">)</span></strong> indicates a
+                <strong> (<span class="required">)</span> </strong> indicates a
                 <strong>required</strong> field.
               </p>
             </div>
 
             <!-- <p>  <strong> Note: </strong> <br> -->
             <!-- <ul>       
-  <li> Expand each section below to enter required information.</li>
- </ul>  </p> -->
+                            <li> Expand each section below to enter required information.</li>
+                            </ul>  </p> -->
 
             <!-- KE: BART edits -->
             <div ng-show="displayIt">
               <fieldset style="margin-left: 1em; height: auto">
                 <legend>
-                  <h2><span class="required"> Test Process</span></h2>
+                  <h2>
+                    <span class="required"> Test Process</span>
+                  </h2>
                 </legend>
                 <button
                   class="collapsible"
@@ -281,21 +287,23 @@
 
                     <select
                       name="Type of Process"
-                      title="Process type {{default_productType}}"
+                      title="Process type {{ default_productType }}"
                       ng-model="productType"
                       class="betnTags"
                       id="productType"
                     >
-                      <option value="">{{default_productType}}</option>
+                      <option value="">
+                        {{ default_productType }}
+                      </option>
                       <option
                         ng-repeat="result in testProductTypes"
-                        value="{{result.name}}"
+                        value="{{ result.name }}"
                       >
-                        {{result.name}}
+                        {{ result.name }}
                       </option>
                     </select>
 
-                    <span ng-show="productType=='Other'">
+                    <span ng-show="productType == 'Other'">
                       Please enter
                       <span ng-if="acrtInputForm.OtherProductType.$valid"
                         >(100 chars max)</span
@@ -358,7 +366,7 @@
                       limit-to="1000"
                       required
                     >
-This is test data from Kathy. </textarea
+                                            This is test data from Kathy. </textarea
                     >
 
                     <br />
@@ -393,7 +401,9 @@ This is test data from Kathy. </textarea
 
               <fieldset style="margin-left: 1em">
                 <legend>
-                  <h2><span class="required"> Submitter Information</span></h2>
+                  <h2>
+                    <span class="required"> Submitter Information</span>
+                  </h2>
                 </legend>
                 <button
                   class="collapsible"
@@ -582,35 +592,39 @@ This is test data from Kathy. </textarea
                   <tbody ng-repeat="record in jsonData">
                     <tr ng-repeat="test in record.Criteria">
                       <th scope="row">
-                        <div class="widetd1">{{$index+1}}</div>
+                        <div class="widetd1">
+                          {{ $index + 1 }}
+                        </div>
                         <!-- ng-if='original' -->
                       </th>
                       <td>
                         <div
                           class="widetd3"
-                          id="testID{{$index}}"
+                          id="testID{{ $index }}"
                           title="Test ID"
                           nowrap
                         >
-                          <a href="{{test.TestCaseURL}}" target="testcase"
-                            >{{test.TestID}}</a
-                          >
+                          <a href="{{ test.TestCaseURL }}" target="testcase">
+                            {{ test.TestID }}
+                          </a>
                         </div>
                       </td>
                       <td>
-                        <div class="widetd3" id="testcondition{{$index}}">
-                          {{test.TestName}}
+                        <div class="widetd3" id="testcondition{{ $index }}">
+                          {{ test.TestName }}
                         </div>
                       </td>
                       <td>
                         <div class="widetd3">
-                          <a href="{{test.TestFileURL}}" target="testfile"
-                            >{{test.TestFile}}</a
-                          >
+                          <a href="{{ test.TestFileURL }}" target="testfile">
+                            {{ test.TestFile }}
+                          </a>
                         </div>
                       </td>
                       <td nowrap>
-                        <div class="widetd3">{{test.ExpectedResult}}</div>
+                        <div class="widetd3">
+                          {{ test.ExpectedResult }}
+                        </div>
                       </td>
                       <td name="Test Process Result">
                         <div class="widetd3">
@@ -621,12 +635,12 @@ This is test data from Kathy. </textarea
                               ng-model="selected_name_tstgrp[$index]"
                               ng-options="o.id as o.name for o in optionsTstrslt6"
                               ng-change="selected_name_tstgrp[$index]=(optionsTstrslt6|filter:{id:selected_id_tstrslt$index})[0].name"
-                              id="{{$index}}"
+                              id="{{ $index }}"
                               ng-click="elemntClicked2([$index])"
-                              title="Test Process Result for {{test.TestID}}"
+                              title="Test Process Result for {{ test.TestID }}"
                             >
                               <option value="" selected disabled hidden>
-                                {{default_SelectedResult[$index]}}
+                                {{ default_SelectedResult[$index] }}
                               </option>
                             </select>
                           </span>
@@ -643,8 +657,8 @@ This is test data from Kathy. </textarea
                             ng-maxlength="100"
                             title="Test Process Check ID"
                             limit-to="100"
-                          >
-{{test.TestProcess}}</textarea
+                            >{{ test.TestProcess }}
+</textarea
                           >
                         </div>
                       </td>
@@ -660,7 +674,9 @@ This is test data from Kathy. </textarea
                             title="Tester's Comment, 1000 chars max"
                             limit-to="1000"
                           >
-{{test.TesterComment}} </textarea
+                                                        {{
+                              test.TesterComment
+                            }} </textarea
                           >
                         </div>
                       </td>
@@ -673,15 +689,12 @@ This is test data from Kathy. </textarea
 
               <br />
 
-              <div />
-              <div />
-
               <br />
 
               <br />
 
               <div class="footerbutton" ng-if="dataLoaded">
-                <span> {{submitMessage}}</span>
+                <span> {{ submitMessage }} </span>
                 <br />
 
                 <input

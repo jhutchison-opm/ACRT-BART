@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <script src="./JS/AngularJS1.6.9/angular.min.js"></script>
   <script src="./JS/angular-sanitize.js"></script>
@@ -64,7 +64,7 @@
 
     <main style="margin-left: 1em">
       <form id="webTestResult">
-        <h1>View {{companyname}} Accessibility Conformance Report</h1>
+        <h1>View {{ companyname }} Accessibility Conformance Report</h1>
 
         Refer to the
         <a
@@ -131,7 +131,9 @@
 
         <br />
 
-        <strong> <span id="selMsg" ng-show="fileInput1"> </span></strong>
+        <strong>
+          <span id="selMsg" ng-show="fileInput1"> </span>
+        </strong>
 
         <br />
 
@@ -154,8 +156,11 @@
           Load Results
         </button>
         <!-- 
-          <br />
-          You have selected <strong>{{evalMethod}} </strong> Version <strong class="hdnMsg">{{evalMethodVrsn}}</strong> -->
+                    <br />
+                    You have selected <strong>
+{{evalMethod}} </strong> Version <strong class="hdnMsg">
+{{evalMethodVrsn}}
+</strong> -->
         <p id="afterDwnloded">
           <img
             id="dwnldConfm"
@@ -166,7 +171,9 @@
             alt="Checkmark"
             onerror="this.style.display='none';"
           />
-          <span id="msg1"> <strong> </strong></span>
+          <span id="msg1">
+            <strong> </strong>
+          </span>
         </p>
         <div ng-show="dataLoaded">
           <fieldset style="margin-left: 1em">
@@ -584,16 +591,16 @@
             <tbody ng-repeat="record1 in jsonData">
               <tr ng-repeat="test1 in record1.SuccessCriteria">
                 <th scope="row" title="Success Criteria" style="width: 102px">
-                  {{test1.CrtID}}
+                  {{ test1.CrtID }}
                 </th>
                 <td style="width: 220px" title="Conformance Level">
-                  {{test1.ConformanceLvl}}
+                  {{ test1.ConformanceLvl }}
                 </td>
                 <td style="width: 220px" title="Guideline">
-                  {{test1.Guideline}}
+                  {{ test1.Guideline }}
                 </td>
                 <td style="width: 400px" title="Remarks & Explanations">
-                  {{test1.RemarkExplntn}}
+                  {{ test1.RemarkExplntn }}
                 </td>
                 <!--<td style="width: 450px" title="Impacted Group" > {{test1.DisabilityImpact}}  </td>  -->
               </tr>
@@ -608,12 +615,14 @@
             title=""
             ng-change="displayTestResult()"
           >
-            <option value="">{{default_SelectedResultDsply}}</option>
+            <option value="">
+              {{ default_SelectedResultDsply }}
+            </option>
             <option
               ng-repeat="result in optionsRsltDsply"
-              value="{{result.name}}"
+              value="{{ result.name }}"
             >
-              {{result.name}}
+              {{ result.name }}
             </option>
           </select>
 
@@ -688,86 +697,98 @@
                   >
                     <!--<tr ng-repeat="test in record.Criteria " ng-if="noResult[$index]" ng-show="TestResult[$index]== filterResult">-->
                     <th title="Issue Number">
-                      <div style="width: 80px">Issue {{$index}}</div>
+                      <div style="width: 80px">Issue {{ $index }}</div>
                     </th>
                     <th scope="row" title="Test Name" id="tnm1[$index]">
-                      <div class="widetd1">{{TestName[$index]}}</div>
+                      <div class="widetd1">
+                        {{ TestName[$index] }}
+                      </div>
                     </th>
                     <td title="Test Id" id="tid1[$index]">
-                      <div class="widetd2">{{TestID[$index]}}</div>
+                      <div class="widetd2">
+                        {{ TestID[$index] }}
+                      </div>
                     </td>
                     <td title="Selected Test Condition" id="tstcndn1[$index]">
-                      <div class="widetd3">{{TestCondition[$index]}}</div>
+                      <div class="widetd3">
+                        {{ TestCondition[$index] }}
+                      </div>
                     </td>
 
                     <td
-                      title="Selected Test Result for {{TestID[$index]}}"
+                      title="Selected Test Result for {{ TestID[$index] }}"
                       id="tstrslt1[$index]"
                     >
-                      <div style="width: 69px">{{TestResult[$index]}}</div>
+                      <div style="width: 69px">
+                        {{ TestResult[$index] }}
+                      </div>
                     </td>
                     <td title="Selected Browser Types" id="brsr1[$index]">
                       <div style="width: 129px">
-                        {{T_brwsrType[$index]}}
+                        {{ T_brwsrType[$index] }}
                         <br />
 
-                        {{T_brwsrVrsn[$index]}}
+                        {{ T_brwsrVrsn[$index] }}
                       </div>
                     </td>
                     <td title="Entered Tester's Comment" id="tstcmt1[$index]">
-                      <div class="widetd3">{{TesterComment[$index]}}</div>
+                      <div class="widetd3">
+                        {{ TesterComment[$index] }}
+                      </div>
                     </td>
                     <td title="Entered location/screen" id="lcn1[$index]">
-                      <div class="widetd3">{{location[$index]}}</div>
+                      <div class="widetd3">
+                        {{ location[$index] }}
+                      </div>
                     </td>
                     <td style="width: 143px !important">
                       <img
                         width="100"
-                        id="image{{$index}}"
-                        ng-src="{{ImageSrc[$index]}}"
+                        id="image{{ $index }}"
+                        ng-src="{{ ImageSrc[$index] }}"
                         ng-click="zoom($index)"
                         class="large-image"
                         onerror="this.style.display='none';"
                       />
 
-                      <div id="{{$index}}" class="modal">
-                        <span class="close" id="cls{{$index}}">&times;</span>
-                        <img class="modal-content" id="img{{$index}}" />
-                        <div class="caption" id="caption{{$index}}"></div>
+                      <div id="{{ $index }}" class="modal">
+                        <span class="close" id="cls{{ $index }}">&times;</span>
+                        <img class="modal-content" id="img{{ $index }}" />
+                        <div class="caption" id="caption{{ $index }}"></div>
                       </div>
                     </td>
 
                     <td title="Selected Global Issue" id="glbl1[$index]">
                       <div style="width: 40px !important">
-                        {{GlobalIssue[$index]}}
+                        {{ GlobalIssue[$index] }}
                       </div>
                     </td>
                     <td title="Entered Remediation Details" id="rmdtl1[$index]">
                       <div style="width: 199px !important">
-                        {{RemediationDetails[$index] }}
+                        {{ RemediationDetails[$index] }}
                       </div>
                     </td>
 
                     <td width="151">
                       <img
                         width="100"
-                        id="image2{{$index}}"
-                        ng-src="{{ImageSrc2[$index]}}"
+                        id="image2{{ $index }}"
+                        ng-src="{{ ImageSrc2[$index] }}"
                         ng-click="zoom2($index)"
                         class="large-image"
                         onerror="this.style.display='none';"
                       />
 
-                      <div id="rmd2{{$index}}" class="modal">
-                        <span class="close" id="cls2{{$index}}">&times;</span>
-                        <img class="modal-content" id="img2{{$index}}" />
-                        <div class="caption" id="caption2{{$index}}"></div>
+                      <div id="rmd2{{ $index }}" class="modal">
+                        <span class="close" id="cls2{{ $index }}">&times;</span>
+                        <img class="modal-content" id="img2{{ $index }}" />
+                        <div class="caption" id="caption2{{ $index }}"></div>
                       </div>
                     </td>
 
                     <td title="Date" id="rmdt1[$index]">
                       <div style="width: 102px">
-                        {{RemediationDate[$index]}}
+                        {{ RemediationDate[$index] }}
                       </div>
                     </td>
                   </tr>
@@ -778,89 +799,103 @@
                   <tr
                     ng-repeat="test in record.Criteria "
                     ng-if="noResult[$index]"
-                    ng-show="TestResult[$index]== filterResult"
+                    ng-show="TestResult[$index] == filterResult"
                   >
                     <td title="Issue Number">
-                      <div style="width: 80px">Issue {{$index}}</div>
+                      <div style="width: 80px">Issue {{ $index }}</div>
                     </td>
                     <th scope="row" title="Test Name" id="tnm1[$index]">
-                      <div class="widetd1">{{TestName[$index]}}</div>
+                      <div class="widetd1">
+                        {{ TestName[$index] }}
+                      </div>
                     </th>
                     <td title="Test Id" id="tid1[$index]">
-                      <div class="widetd2">{{TestID[$index]}}</div>
+                      <div class="widetd2">
+                        {{ TestID[$index] }}
+                      </div>
                     </td>
                     <td title="Selected Test Condition" id="tstcndn1[$index]">
-                      <div class="widetd3">{{TestCondition[$index]}}</div>
+                      <div class="widetd3">
+                        {{ TestCondition[$index] }}
+                      </div>
                     </td>
 
                     <td
-                      title="Selected Test Result for {{TestID[$index]}}"
+                      title="Selected Test Result for {{ TestID[$index] }}"
                       id="tstrslt1[$index]"
                     >
-                      <div style="width: 69px">{{TestResult[$index]}}</div>
+                      <div style="width: 69px">
+                        {{ TestResult[$index] }}
+                      </div>
                     </td>
                     <td title="Selected Browser Types" id="brsr1[$index]">
                       <div style="width: 129px">
-                        {{T_brwsrType[$index]}}
+                        {{ T_brwsrType[$index] }}
                         <br />
 
-                        {{T_brwsrVrsn[$index]}}
+                        {{ T_brwsrVrsn[$index] }}
                       </div>
                     </td>
                     <td title="Entered Tester's Comment" id="tstcmt1[$index]">
-                      <div class="widetd3">{{TesterComment[$index]}}</div>
+                      <div class="widetd3">
+                        {{ TesterComment[$index] }}
+                      </div>
                     </td>
                     <td title="Entered location/screen" id="lcn1[$index]">
-                      <div class="widetd3">{{location[$index]}}</div>
+                      <div class="widetd3">
+                        {{ location[$index] }}
+                      </div>
                     </td>
                     <td width="151">
                       <img
                         width="100"
-                        id="image{{$index}}"
-                        ng-src="{{ImageSrc[$index]}}"
+                        id="image{{ $index }}"
+                        ng-src="{{ ImageSrc[$index] }}"
                         ng-click="zoom($index)"
                         class="large-image"
                         alt=""
                         onerror="this.style.display='none';"
                       />
 
-                      <div id="{{$index}}" class="modal">
-                        <span class="close" id="cls{{$index}}">&times;</span>
-                        <img class="modal-content" id="img{{$index}}" />
-                        <div class="caption" id="caption{{$index}}"></div>
+                      <div id="{{ $index }}" class="modal">
+                        <span class="close" id="cls{{ $index }}">&times;</span>
+                        <img class="modal-content" id="img{{ $index }}" />
+                        <div class="caption" id="caption{{ $index }}"></div>
                       </div>
                     </td>
 
                     <td title="Selected Global Issue" id="glbl1[$index]">
-                      <div style="width: 46px">{{GlobalIssue[$index]}}</div>
+                      <div style="width: 46px">
+                        {{ GlobalIssue[$index] }}
+                      </div>
                     </td>
                     <td title="Entered Remediation Details" id="rmdtl1[$index]">
                       <div style="width: 201px">
-                        {{RemediationDetails[$index] }}
+                        {{ RemediationDetails[$index] }}
                       </div>
                     </td>
 
                     <td width="151">
                       <img
                         width="100"
-                        id="image2{{$index}}"
-                        ng-src="{{ImageSrc2[$index]}}"
+                        id="image2{{ $index }}"
+                        ng-src="{{ ImageSrc2[$index] }}"
                         ng-click="zoom2($index)"
                         class="large-image"
                         alt=""
                         onerror="this.style.display='none';"
                       />
 
-                      <div id="rmd2{{$index}}" class="modal">
-                        <span class="close" id="cls2{{$index}}">&times;</span>
-                        <img class="modal-content" id="img2{{$index}}" />
-                        <div class="caption" id="caption2{{$index}}"></div>
+                      <div id="rmd2{{ $index }}" class="modal">
+                        <span class="close" id="cls2{{ $index }}">&times;</span>
+                        <img class="modal-content" id="img2{{ $index }}" />
+                        <div class="caption" id="caption2{{ $index }}"></div>
                       </div>
                     </td>
 
                     <td title="Date" id="rmdt1[$index]">
                       <div style="width: 102px">
-                        {{RemediationDate[$index]}}
+                        {{ RemediationDate[$index] }}
                       </div>
                     </td>
                   </tr>
@@ -873,7 +908,7 @@
             <legend>
               <h3>Disability Impact Score</h3>
             </legend>
-            <h3>Risk Score: {{TotalImpactedGroupNo}}</h3>
+            <h3>Risk Score: {{ TotalImpactedGroupNo }}</h3>
 
             <button
               class="collapsible"
@@ -888,7 +923,7 @@
             <div class="content">
               <label for="dsblImpctRslt"> </label>
               <!-- <h4>Different impacted groups are separated by comma, check below</h4> -->
-              <span> {{impctInfoMsg}}</span>
+              <span> {{ impctInfoMsg }} </span>
               <span id="dsblImpctRslt">
                 <table id="impctScreTbl" class="table">
                   <caption>
@@ -906,25 +941,31 @@
 
                   <tr>
                     <th scope="row" title="Vision">Vision</th>
-                    <td title="Risk Score for Vision">{{TotalVision}}</td>
+                    <td title="Risk Score for Vision">
+                      {{ TotalVision }}
+                    </td>
                     <td title="Groups Impacted for Vision">
-                      {{TotalVisionList}}
+                      {{ TotalVisionList }}
                     </td>
                   </tr>
 
                   <tr>
                     <th scope="row" title="Hearing">Hearing</th>
-                    <td title="Risk score for Hearing">{{HearingTotal}}</td>
+                    <td title="Risk score for Hearing">
+                      {{ HearingTotal }}
+                    </td>
                     <td title="Groups Impacted for Hearing">
-                      {{HearingTotalList}}
+                      {{ HearingTotalList }}
                     </td>
                   </tr>
 
                   <tr>
                     <th scope="row" title="Cognitive">Cognitive</th>
-                    <td title="Risk Score for Cognitive">{{TotalCognitive}}</td>
+                    <td title="Risk Score for Cognitive">
+                      {{ TotalCognitive }}
+                    </td>
                     <td title="Groups Impacted for Cognitive">
-                      {{TotalCognitiveList}}
+                      {{ TotalCognitiveList }}
                     </td>
                   </tr>
 
@@ -933,18 +974,20 @@
                       Photosensitivity
                     </th>
                     <td title="Risk score for Photosensitivity ">
-                      {{TotalPhotosensitive}}
+                      {{ TotalPhotosensitive }}
                     </td>
                     <td title="Groups Impacted for Photosensitivity">
-                      {{TotalPhotosensitiveList}}
+                      {{ TotalPhotosensitiveList }}
                     </td>
                   </tr>
 
                   <tr>
                     <th scope="row" title="Mobility">Mobility</th>
-                    <td title="Risk Score for Mobility">{{TotalMobility}}</td>
+                    <td title="Risk Score for Mobility">
+                      {{ TotalMobility }}
+                    </td>
                     <td title="Groups Impacted for Mobility">
-                      {{TotalMobilityList}}
+                      {{ TotalMobilityList }}
                     </td>
                   </tr>
                 </table>
