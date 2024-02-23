@@ -26,7 +26,7 @@ export default function SiteNav() {
             <ul className="usa-nav__primary usa-accordion">
               {navItems.map((item, idx) => (
                 <li className="usa-nav__primary-item" key={idx}>
-                  <a href={item.href} className="usa-nav-link">
+                  <a href={`${import.meta.env.BASE_URL}${item.href}`} className="usa-nav-link">
                     <span>{item.label}</span>
                   </a>
                 </li>

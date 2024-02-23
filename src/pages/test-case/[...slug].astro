@@ -29,7 +29,9 @@ const { prev, next } = getTestCaseGroupsPagination(entry.slug);
     {
       prev ? (
         <div class="margin-bottom-4">
-          <a href={`/test-case/${prev.slug}`}>Previous: {prev.data.title}</a>
+          <a href={`${import.meta.env.BASE_URL}/test-case/${prev.slug}`}>
+            Previous: {prev.data.title}
+          </a>
         </div>
       ) : null
     }
@@ -45,7 +47,9 @@ const { prev, next } = getTestCaseGroupsPagination(entry.slug);
     {
       next ? (
         <div class="margin-top-4">
-          <a href={`/test-case/${next.slug}`}>Next: {next.data.title}</a>
+          <a href={`${import.meta.env.BASE_URL}/test-case/${next.slug}`}>
+            Next: {next.data.title}
+          </a>
         </div>
       ) : null
     }

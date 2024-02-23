@@ -56,7 +56,7 @@ export default function InputForm({ fields }: { fields: CollectionEntry<'testCas
               <div className="grid-col-5">
                 <div>
                   <p className="margin-bottom2 text-secondary fw-bold fs-6 text-uppercase">Test ID</p>
-                  <p><a href={testCase.data.link}>{testCase.data.id}</a></p>
+                  <p><a href={`${import.meta.env.BASE_URL}${testCase.data.link}`}>{testCase.data.id}</a></p>
                 </div>
                 <div>
                   <p className="margin-bottom2 text-secondary fw-bold fs-6 text-uppercase">Test Description</p>
