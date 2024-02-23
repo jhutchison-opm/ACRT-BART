@@ -1,4 +1,4 @@
-import{c as r,r as n,m as o}from"./render-template.EPiOIgNG.js";import{u as i}from"./input-form.fiE94tlJ.js";import"./jsx-runtime.G4i-1Giy.js";import"./index.UCAuQZPX.js";const t=`<h2 id="acrt-instructions">ACRT Instructions</h2>
+import{c as r,r as n,m as o}from"./render-template.TrlrTYZL.js";import{u as i}from"./input-form.tbFjoukD.js";import"./jsx-runtime.G4i-1Giy.js";import"./index.UCAuQZPX.js";const t=`<h2 id="acrt-instructions">ACRT Instructions</h2>
 <p>To access ACRT User Guide:</p>
 <ol>
 <li>Locate the instructions in the Resources folder.(The instructions are available in Word and PDF formats.)</li>
@@ -26,7 +26,7 @@ import{c as r,r as n,m as o}from"./render-template.EPiOIgNG.js";import{u as i}fr
 <li>Select Load Results button.</li>
 <li>View the Test Results.</li>
 <li>Select the Save as HTML button at the bottom or use Alt+S to generate a printer-friendly version of the report and save JSON file for future use.</li>
-</ol>`,s={title:"Instructions"},l="C:/Users/JRHUTCHISON/OneDrive - US Office of Personnel Management/Documents/GitHub/ACRT-BART/src/content/pages/instructions.md",a="/instructions";function R(){return`\r
+</ol>`,s={title:"Instructions"},l="C:/Users/JRHUTCHISON/OneDrive - US Office of Personnel Management/Documents/GitHub/ACRT-BART/src/content/pages/instructions.md",a="/ACRT-BART/instructions";function R(){return`\r
 ## ACRT Instructions\r
 \r
 To access ACRT User Guide:\r
