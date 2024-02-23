@@ -1,0 +1,23 @@
+---
+import { getEntry } from "astro:content";
+import SiteLayout from "#layouts/site-layout.astro";
+import TestLayout from "#layouts/test-layout.astro";
+import { getTestCaseGroupsPagination } from "#utils/functions/get-test-case-groups-pagination";
+
+const entry = await getEntry("pages", "create-report");
+const { Content } = await entry.render();
+
+const { first } = getTestCaseGroupsPagination();
+---
+
+<SiteLayout>
+  <TestLayout>
+    <div class="usa-prose">
+      <Content />
+    </div>
+    <div>
+      Start testing!
+      <a class="usa-button" href={`/test-case/${first.slug}`}>Start</a>
+    </div>
+  </TestLayout>
+</SiteLayout>

@@ -1,0 +1,21 @@
+---
+import { getEntry } from "astro:content";
+import SiteLayout from "../layouts/site-layout.astro";
+
+const entry = await getEntry("pages", "home");
+const { Content } = await entry.render();
+---
+
+<SiteLayout>
+	<div class="grid-container">
+		<div class="grid-row margin-x-neg-2">
+			<div
+				class="grid-col-12 tablet:grid-col-8 tablet:grid-offset-2 padding-x-2"
+			>
+				<div class="usa-prose">
+					<Content />
+				</div>
+			</div>
+		</div>
+	</div>
+</SiteLayout>

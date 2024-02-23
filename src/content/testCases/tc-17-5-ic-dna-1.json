@@ -1,0 +1,7 @@
+{
+  "id": "TC17.5-ic-dna-1",
+  "description": "no synchronized media on page",
+  "link": "https://section508coordinators.github.io/baselinealignment/testcases/TC17.5-ic-dna-1.html",
+  "expectedResult": "dna",
+  "group": "group-2"
+}

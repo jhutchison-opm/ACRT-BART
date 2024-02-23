@@ -1,0 +1,24 @@
+---
+import "@uswds/uswds/css/uswds.min.css";
+
+import Navbar from "../components/site-nav.tsx";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <BaseHead title={title}/> -->
+  </head>
+  <body>
+    <Navbar client:load />
+    <main class="margin-y-5">
+      <slot />
+      <!-- your content is injected here -->
+    </main>
+    <!-- <Footer /> -->
+  </body>
+  <script>
+    import "@uswds/uswds/js";
+  </script>
+</html>

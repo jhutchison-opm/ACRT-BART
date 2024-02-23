@@ -1,0 +1,7 @@
+{
+  "id": "TC10.1-all-pass-1",
+  "description": "input text element with accessible name in placeholder attribute (old TC10-002-pass)",
+  "link": "https://section508coordinators.github.io/baselinealignment/testcases/TC10.1-all-pass-1.html",
+  "expectedResult": "pass",
+  "group": "group-1"
+}

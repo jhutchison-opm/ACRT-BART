@@ -1,0 +1,7 @@
+{
+  "id": "TC12.1-2-fail-1",
+  "description": "data table in a `<table>` element also has role='presentation'",
+  "link": "https://section508coordinators.github.io/baselinealignment/testcases/TC12.1-2-fail-1.html",
+  "expectedResult": "fail",
+  "group": "group-1"
+}

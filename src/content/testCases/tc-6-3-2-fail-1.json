@@ -1,0 +1,7 @@
+{
+  "id": "TC6.3-2-fail-1",
+  "description": "non-empty text alternative, but does not identify or describe the purpose of the CAPTCHA",
+  "link": "https://section508coordinators.github.io/baselinealignment/testcases/TC06.3-2-fail-1.html",
+  "expectedResult": "fail",
+  "group": "group-1"
+}

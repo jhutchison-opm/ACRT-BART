@@ -1,0 +1,7 @@
+{
+  "id": "TC6.3-1-fail-1",
+  "description": "empty text alternative for CAPTCHA",
+  "link": "https://section508coordinators.github.io/baselinealignment/testcases/TC06.3-1-fail-1.html",
+  "expectedResult": "fail",
+  "group": "group-1"
+}

@@ -1,0 +1,50 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "lib": [
+      "es2022",
+      "dom",
+      "dom.iterable"
+    ],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "es2022",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    /* Strictness */
+    "strict": true,
+    //
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "strictNullChecks": true,
+    "baseUrl": "src",
+    "paths": {
+      "#assets/*": [
+        "assets/*"
+      ],
+      "#config/*": [
+        "config.ts"
+      ],
+      "#components/*": [
+        "components/*"
+      ],
+      "#layouts/*": [
+        "layouts/*"
+      ],
+      "#pages/*": [
+        "pages/*"
+      ],
+      "#styles/*": [
+        "styles/*"
+      ],
+      "#utils/*": [
+        "utils/*"
+      ],
+    }
+  },
+  "exclude": [
+    "JS"
+  ]
+}

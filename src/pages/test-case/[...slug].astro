@@ -1,0 +1,53 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, getEntry } from "astro:content";
+import SiteLayout from "#layouts/site-layout.astro";
+import InputForm from "#components/input-form";
+import TestLayout from "#layouts/test-layout.astro";
+import { getTestCaseGroupsPagination } from "#utils/functions/get-test-case-groups-pagination";
+
+export const getStaticPaths = (async () => {
+  const testCaseGroups = await getCollection("testCaseGroups");
+  return testCaseGroups.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const fields = await getCollection("testCases", ({ data }) => {
+  return data.group.slug === entry.slug;
+});
+
+const { prev, next } = getTestCaseGroupsPagination(entry.slug);
+---
+
+<SiteLayout>
+  <TestLayout>
+    {
+      prev ? (
+        <div class="margin-bottom-4">
+          <a href={`/test-case/${prev.slug}`}>Previous: {prev.data.title}</a>
+        </div>
+      ) : null
+    }
+    <div class="usa-prose">
+      <div class="margin-bottom-4">
+        <h1>{entry.data.title}</h1>
+      </div>
+      <Content />
+    </div>
+    <div>
+      <InputForm fields={fields} client:only="react" />
+    </div>
+    {
+      next ? (
+        <div class="margin-top-4">
+          <a href={`/test-case/${next.slug}`}>Next: {next.data.title}</a>
+        </div>
+      ) : null
+    }
+  </TestLayout>
+</SiteLayout>
