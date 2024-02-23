@@ -17,10 +17,7 @@ const { first } = getTestCaseGroupsPagination();
     </div>
     <div>
       Start testing!
-      <a
-        class="usa-button"
-        href={`${import.meta.env.BASE_URL}/test-case/${first.slug}`}>Start</a
-      >
+      <a class="usa-button" href={`/test-case/${first.slug}`}>Start</a>
     </div>
   </TestLayout>
 </SiteLayout>

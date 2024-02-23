@@ -6,6 +6,6 @@ import react from "@astrojs/react";
 export default defineConfig({
   integrations: [react()],
   site: 'https://jhutchison-opm.github.io',
-  base: '/ACRT-BART',
+  // base: '/ACRT-BART',
   outDir: './docs' // For github pages manual deploy
 });
