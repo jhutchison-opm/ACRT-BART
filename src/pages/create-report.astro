@@ -3,6 +3,7 @@ import { getEntry } from "astro:content";
 import SiteLayout from "#layouts/site-layout.astro";
 import TestLayout from "#layouts/test-layout.astro";
 import { getTestCaseGroupsPagination } from "#utils/functions/get-test-case-groups-pagination";
+import { getUrl } from "#utils/functions/get-url";
 
 const entry = await getEntry("pages", "create-report");
 const { Content } = await entry.render();
@@ -17,10 +18,7 @@ const { first } = getTestCaseGroupsPagination();
     </div>
     <div>
       Start testing!
-      <a
-        class="usa-button"
-        href={`${import.meta.env.BASE_URL}/test-case/${first.slug}`}>Start</a
-      >
+      <a class="usa-button" href={getUrl(`test-case/${first.slug}`)}>Start</a>
     </div>
   </TestLayout>
 </SiteLayout>

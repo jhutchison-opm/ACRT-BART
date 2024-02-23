@@ -1,0 +1,43 @@
+---
+import { getUrl } from "#utils/functions/get-url";
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Instructions", href: "/instructions" },
+  { label: "Create Report", href: "/create-report" },
+  { label: "View Report", href: "/view-report" },
+  { label: "License", href: "/license" },
+];
+---
+
+<div>
+  <div class="usa-overlay"></div>
+  <header class="usa-header usa-header--basic">
+    <div class="usa-nav-container">
+      <div class="usa-navbar">
+        <div class="usa-logo">
+          <em class="usa-logo__text">
+            <a href={getUrl("/")}>ICT Testing Tool</a>
+          </em>
+        </div>
+        <button type="button" class="usa-menu-btn">Menu</button>
+      </div>
+      <nav aria-label="Primary navigation" class="usa-nav">
+        <button type="button" class="usa-nav__close">
+          <img src="/assets/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+        <ul class="usa-nav__primary usa-accordion">
+          {
+            navItems.map((item, idx) => (
+              <li class="usa-nav__primary-item">
+                <a href={getUrl(item.href)} class="usa-nav-link">
+                  <span>{item.label}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>

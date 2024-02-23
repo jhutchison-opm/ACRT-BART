@@ -6,9 +6,9 @@ import react from "@astrojs/react";
 export default defineConfig({
   integrations: [react()],
   site: 'https://jhutchison-opm.github.io',
-  base: '/ACRT-BART',
+  base: import.meta.env.NODE_ENV === 'production' ? '/ACRT-BART' : undefined,
   outDir: './docs', // For github pages manual deploy
   build: {
-    assets: 'assets'
+    assets: 'assets' // Using a manual dir so .nojekyll isnt needed to deploy to GH pages
   }
 });

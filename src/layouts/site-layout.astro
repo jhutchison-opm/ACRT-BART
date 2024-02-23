@@ -1,22 +1,19 @@
 ---
 import "@uswds/uswds/css/uswds.min.css";
 
-import Navbar from "../components/site-nav.tsx";
+import Navbar from "../components/site-nav.astro";
+import { getUrl } from "#utils/functions/get-url";
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href={`${import.meta.env.BASE_URL}/favicon.svg`}
-    />
+    <link rel="icon" type="image/svg+xml" href={getUrl("favicon.svg")} />
     <!-- <BaseHead title={title}/> -->
   </head>
   <body>
-    <Navbar client:load />
+    <Navbar />
     <main class="margin-y-5">
       <slot />
       <!-- your content is injected here -->
