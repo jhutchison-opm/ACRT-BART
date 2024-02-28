@@ -49,34 +49,59 @@ export default function InputForm({ fields }: { fields: CollectionEntry<'testCas
 
       <div className="display-flex flex-column" style={{ gap: '12px' }}>
         {fields.map((testCase, idx) => (
-          <div key={idx}>
-            <div className="grid-row" key={idx}>
-              <div className="grid-col-5">
-                <div>
-                  <p className="margin-bottom2 text-secondary fw-bold fs-6 text-uppercase">Test ID</p>
-                  <p><a href={testCase.data.link} target="_blank">{testCase.data.id}</a></p>
+          <div className="grid-row" key={idx}>
+            <div className="grid-col-12">
+              <div>
+                <div className="margin-bottom-4">
+                  <h2 id={testCase.data.id.replace(' ', '-')} className="margin-bottom-1 font-heading-lg">
+                    <a className="text-black text-no-underline hover:text-underline" href={`#${testCase.data.id.replace(' ', '-')}`}>{testCase.data.id}</a>
+                  </h2>
+                  <p className="margin-top-1">
+                    <a className="usa-link usa-link--external" href={testCase.data.link} target="_blank">Understanding {testCase.data.id} </a>
+                  </p>
                 </div>
-                <div>
-                  <p className="margin-bottom2 text-secondary fw-bold fs-6 text-uppercase">Test Description</p>
-                  <p>{testCase.data.description}</p>
-                </div>
-                <div>
-                  <p className="margin-bottom2 text-secondary fw-bold fs-6 text-uppercase">Expected Results</p>
-                  <p>{testCase.data.expectedResult}</p>
-                </div>
-              </div>
-              <div className="grid-col-6 grid-offset-1">
+                <dl>
+                  <dt className="text-bold margin-bottom-1">Description</dt>
+                  <dd className="margin-left-0">
+                    <p className="margin-top-0">{testCase.data.description}</p>
+                  </dd>
+                  <dt className="text-bold margin-bottom-1">Expected Results</dt>
+                  <dd className="margin-left-0">
+                    {testCase.data.expectedResult === 'pass' ? (
+                      <div className="display-inline-flex padding-1 bg-green text-white radius-md">
+                        <svg className="usa-icon" aria-hidden="true" focusable="false" role="img">
+                          <use xlinkHref="/assets/img/sprite.svg#check_circle_outline"></use>
+                        </svg>
+                        <span className="text-bold">Pass</span>
+                      </div>
+                    ) : testCase.data.expectedResult === 'fail' ? (
+                      <div className="display-inline-flex padding-1 bg-secondary-darker text-white radius-md">
+                        <svg className="usa-icon" aria-hidden="true" focusable="false" role="img">
+                          <use xlinkHref="/assets/img/sprite.svg#highlight_off"></use>
+                        </svg>
+                        <span className="text-bold">Fail</span>
+                      </div>
+                    ) : testCase.data.expectedResult === 'dna' ? (
+                      <div className="display-inline-flex padding-1 bg-base-light text-black radius-md">
+                        <svg className="usa-icon" aria-hidden="true" focusable="false" role="img">
+                          <use xlinkHref="/assets/img/sprite.svg#do_not_disturb"></use>
+                        </svg>
+                        <span className="text-bold">Does not apply</span>
+                      </div>
+                    ) : null}
+                  </dd>
+                </dl>
                 <div className="display-flex flex-column" style={{ gap: '12px' }}>
                   <div>
-                    <label className="usa-label" htmlFor={`testResult-${idx}`}>Test Result</label>
-                    <input className="usa-input" id={`testResult-${idx}`} type="text" {...register(`results.${idx}.testResult` as const, {
+                    <label className="usa-label" htmlFor={`testName-${idx}`}>Test Process Name/ID</label>
+                    <input className="usa-input" id={`testName-${idx}`} type="text" {...register(`results.${idx}.testName` as const, {
                       required: true,
                       onBlur: () => saveUpdate(idx)
                     })} />
                   </div>
                   <div>
-                    <label className="usa-label" htmlFor={`testName-${idx}`}>Test Process Name/ID</label>
-                    <input className="usa-input" id={`testName-${idx}`} type="text" {...register(`results.${idx}.testName` as const, {
+                    <label className="usa-label" htmlFor={`testResult-${idx}`}>Test Result</label>
+                    <input className="usa-input" id={`testResult-${idx}`} type="text" {...register(`results.${idx}.testResult` as const, {
                       required: true,
                       onBlur: () => saveUpdate(idx)
                     })} />
@@ -91,15 +116,13 @@ export default function InputForm({ fields }: { fields: CollectionEntry<'testCas
                 </div>
               </div>
             </div>
-            <div className="padding-top-5">
-              <hr />
+            <div className="grid-col-12">
+              <div className="padding-top-5">
+                <hr className="border-top-1px border-solid border-base-lighter" />
+              </div>
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="margin-top-3 display-flex">
-        <button className="usa-button margin-left-auto">Submit</button>
       </div>
     </form>
   )

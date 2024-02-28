@@ -27,15 +27,29 @@ const { prev, next } = getTestCaseGroupsPagination(entry.slug);
 
 <SiteLayout>
   <TestLayout>
-    {
-      prev ? (
-        <div class="margin-bottom-4">
-          <a href={getUrl(`test-case/${prev.slug}`)}>
-            Previous: {prev.data.title}
-          </a>
-        </div>
-      ) : null
-    }
+    <div class="display-flex">
+      {
+        prev ? (
+          <div class="margin-bottom-4">
+            <a
+              class="usa-button usa-button--outline display-flex flex-align-center"
+              href={getUrl(`test-case/${prev.slug}`)}
+            >
+              <svg
+                class="usa-icon"
+                aria-hidden="true"
+                focusable="false"
+                role="img"
+              >
+                <use xlink:href="/assets/img/sprite.svg#navigate_before" />
+              </svg>
+              <span class="usa-sr-only">Back to</span>
+              <span>{prev.data.title}</span>
+            </a>
+          </div>
+        ) : null
+      }
+    </div>
     <div class="usa-prose">
       <div class="margin-bottom-4">
         <h1>{entry.data.title}</h1>
@@ -45,12 +59,45 @@ const { prev, next } = getTestCaseGroupsPagination(entry.slug);
     <div>
       <InputForm fields={fields} client:only="react" />
     </div>
-    {
-      next ? (
-        <div class="margin-top-4">
-          <a href={getUrl(`test-case/${next.slug}`)}>Next: {next.data.title}</a>
-        </div>
-      ) : null
-    }
+    <div class="margin-top-4 display-flex">
+      {
+        prev ? (
+          <a
+            class="usa-button usa-button--outline display-flex flex-align-center"
+            href={getUrl(`test-case/${prev.slug}`)}
+          >
+            <svg
+              class="usa-icon"
+              aria-hidden="true"
+              focusable="false"
+              role="img"
+            >
+              <use xlink:href="/assets/img/sprite.svg#navigate_before" />
+            </svg>
+            <span class="usa-sr-only">Back to</span>
+            <span>{prev.data.title}</span>
+          </a>
+        ) : null
+      }
+      {
+        next ? (
+          <a
+            class="usa-button usa-button--outline display-flex flex-align-center margin-left-auto"
+            href={getUrl(`test-case/${next.slug}`)}
+          >
+            <span class="usa-sr-only">Continue to</span>
+            <span>{next.data.title}</span>
+            <svg
+              class="usa-icon"
+              aria-hidden="true"
+              focusable="false"
+              role="img"
+            >
+              <use xlink:href="/assets/img/sprite.svg#navigate_next" />
+            </svg>
+          </a>
+        ) : null
+      }
+    </div>
   </TestLayout>
 </SiteLayout>

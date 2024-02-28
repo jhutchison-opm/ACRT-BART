@@ -4,10 +4,10 @@ import ProgressIndicator from "#components/progress-indicator";
 
 <div class="grid-container">
   <div class="grid-row margin-x-neg-2">
-    <div class="grid-col-8 padding-x-2">
+    <div class="grid-col-5 grid-offset-1 padding-x-2">
       <slot />
     </div>
-    <div class="grid-col-4 padding-x-2">
+    <div class="grid-col-4 grid-offset-1 padding-x-2">
       <div class="padding-top-5" style={{ position: "sticky", top: 0 }}>
         <ProgressIndicator client:only="react" />
       </div>
