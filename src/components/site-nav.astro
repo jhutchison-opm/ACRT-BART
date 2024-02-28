@@ -30,7 +30,7 @@ const navItems = [
           {
             navItems.map((item, idx) => (
               <li class="usa-nav__primary-item">
-                <a href={getUrl(item.href)} class="usa-nav-link">
+                <a href={getUrl(`/${item.href}`)} class="usa-nav-link">
                   <span>{item.label}</span>
                 </a>
               </li>
