@@ -33,7 +33,7 @@ const { prev, next } = getTestCaseGroupsPagination(entry.slug);
           <div class="margin-bottom-4">
             <a
               class="usa-button usa-button--outline display-flex flex-align-center"
-              href={getUrl(`test-case/${prev.slug}`)}
+              href={getUrl(`/test-case/${prev.slug}`)}
             >
               <svg
                 class="usa-icon"
@@ -64,7 +64,7 @@ const { prev, next } = getTestCaseGroupsPagination(entry.slug);
         prev ? (
           <a
             class="usa-button usa-button--outline display-flex flex-align-center"
-            href={getUrl(`test-case/${prev.slug}`)}
+            href={getUrl(`/test-case/${prev.slug}`)}
           >
             <svg
               class="usa-icon"
@@ -83,7 +83,7 @@ const { prev, next } = getTestCaseGroupsPagination(entry.slug);
         next ? (
           <a
             class="usa-button usa-button--outline display-flex flex-align-center margin-left-auto"
-            href={getUrl(`test-case/${next.slug}`)}
+            href={getUrl(`/test-case/${next.slug}`)}
           >
             <span class="usa-sr-only">Continue to</span>
             <span>{next.data.title}</span>
