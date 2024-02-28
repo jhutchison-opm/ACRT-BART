@@ -16,9 +16,10 @@ const { first } = getTestCaseGroupsPagination();
     <div class="usa-prose">
       <Content />
     </div>
-    <div>
-      Start testing!
-      <a class="usa-button" href={getUrl(`test-case/${first.slug}`)}>Start</a>
+    <div class="margin-top-5">
+      <a class="usa-button" href={getUrl(`test-case/${first.slug}`)}
+        >Start Testing</a
+      >
     </div>
   </TestLayout>
 </SiteLayout>

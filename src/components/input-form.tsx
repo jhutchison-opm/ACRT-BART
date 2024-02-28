@@ -1,11 +1,9 @@
-import { useFieldArray, useForm, type FieldName, type UseFormGetValues, type UseFormRegister, type FieldValue, type FieldValues } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { processSchema, resultSchema, submitterSchema } from "#utils/zod";
+import { resultSchema } from "#utils/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { type CollectionEntry } from "astro:content";
-import { useLiveQuery } from "dexie-react-hooks";
 import { db } from "#utils/dexie/db";
-import type { SyntheticEvent } from "react";
 
 const formPayloadSchema = z.object({ results: z.array(resultSchema) })
 type FormData = z.infer<typeof formPayloadSchema>
@@ -19,8 +17,8 @@ export default function InputForm({ fields }: { fields: CollectionEntry<'testCas
       return found || {
         id: undefined,
         testId: field.data.id,
-        testCaseId: '',
         testName: '',
+        testResult: '',
         testComment: ''
       }
     })
@@ -71,7 +69,7 @@ export default function InputForm({ fields }: { fields: CollectionEntry<'testCas
                 <div className="display-flex flex-column" style={{ gap: '12px' }}>
                   <div>
                     <label className="usa-label" htmlFor={`testResult-${idx}`}>Test Result</label>
-                    <input className="usa-input" id={`testResult-${idx}`} type="text" {...register(`results.${idx}.testCaseId` as const, {
+                    <input className="usa-input" id={`testResult-${idx}`} type="text" {...register(`results.${idx}.testResult` as const, {
                       required: true,
                       onBlur: () => saveUpdate(idx)
                     })} />

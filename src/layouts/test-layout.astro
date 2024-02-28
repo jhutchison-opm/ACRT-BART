@@ -1,5 +1,5 @@
 ---
-
+import ProgressIndicator from "#components/progress-indicator";
 ---
 
 <div class="grid-container">
@@ -9,7 +9,7 @@
     </div>
     <div class="grid-col-4 padding-x-2">
       <div class="padding-top-5" style={{ position: "sticky", top: 0 }}>
-        progress indicator
+        <ProgressIndicator client:only="react" />
       </div>
     </div>
   </div>

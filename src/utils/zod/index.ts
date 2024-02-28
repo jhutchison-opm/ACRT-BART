@@ -28,7 +28,7 @@ export const submitterSchema = z.object({
 export const resultSchema = z.object({
   id: z.number().optional(),
   testId: z.string(),
-  testCaseId: z.string(),
   testName: z.string(),
+  testResult: z.string(),
   testComment: z.string()
 })
