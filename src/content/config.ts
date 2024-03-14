@@ -17,7 +17,11 @@ const testCaseGroupsCollection = defineCollection({
   })
 })
 
-export const expectedResultOptions = ["pass", "fail", "dna"] as const
+export const expectedResultOptions = {
+  pass: "Pass",
+  fail: "Fail",
+  dna: "Does Not Apply"
+} as const
 
 const testCasesCollection = defineCollection({
   type: 'data',
@@ -26,7 +30,7 @@ const testCasesCollection = defineCollection({
     id: z.string().min(1),
     description: z.string(),
     link: z.string().url(),
-    expectedResult: z.enum(expectedResultOptions)
+    expectedResult: z.nativeEnum(expectedResultOptions)
   })
 })
 // Export a single `collections` object to register your collection(s)

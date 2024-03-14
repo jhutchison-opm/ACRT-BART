@@ -4,7 +4,7 @@ import { resultSchema } from "#utils/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { type CollectionEntry } from "astro:content";
 import { db } from "#utils/dexie/db";
-import { expectedResultObject } from "content/config";
+import { expectedResultOptions } from "content/config";
 
 const formPayloadSchema = z.object({ results: z.array(resultSchema) })
 type FormData = z.infer<typeof formPayloadSchema>
@@ -40,7 +40,7 @@ export default function InputForm({ fields }: { fields: CollectionEntry<'testCas
   }
 
   const resultOptions: { value: string, label: string }[] = []
-  Object.entries(expectedResultObject).forEach(([key, val]) => {
+  Object.entries(expectedResultOptions).forEach(([key, val]) => {
     resultOptions.push({
       value: key,
       label: val
@@ -76,26 +76,26 @@ export default function InputForm({ fields }: { fields: CollectionEntry<'testCas
                   </dd>
                   <dt className="text-bold margin-bottom-1">Expected Results</dt>
                   <dd className="margin-left-0">
-                    {testCase.data.expectedResult === 'pass' ? (
+                    {testCase.data.expectedResult === expectedResultOptions.pass ? (
                       <div className="display-inline-flex padding-1 bg-green text-white radius-md">
                         <svg className="usa-icon" aria-hidden="true" focusable="false" role="img">
                           <use xlinkHref="/assets/img/sprite.svg#check_circle_outline"></use>
                         </svg>
-                        <span className="text-bold">Pass</span>
+                        <span className="text-bold">{expectedResultOptions.pass}</span>
                       </div>
-                    ) : testCase.data.expectedResult === 'fail' ? (
+                    ) : testCase.data.expectedResult === expectedResultOptions.fail ? (
                       <div className="display-inline-flex padding-1 bg-secondary-darker text-white radius-md">
                         <svg className="usa-icon" aria-hidden="true" focusable="false" role="img">
                           <use xlinkHref="/assets/img/sprite.svg#highlight_off"></use>
                         </svg>
-                        <span className="text-bold">Fail</span>
+                        <span className="text-bold">{expectedResultOptions.fail}</span>
                       </div>
-                    ) : testCase.data.expectedResult === 'dna' ? (
+                    ) : testCase.data.expectedResult === expectedResultOptions.dna ? (
                       <div className="display-inline-flex padding-1 bg-base-light text-black radius-md">
                         <svg className="usa-icon" aria-hidden="true" focusable="false" role="img">
                           <use xlinkHref="/assets/img/sprite.svg#do_not_disturb"></use>
                         </svg>
-                        <span className="text-bold">Does not apply</span>
+                        <span className="text-bold">{expectedResultOptions.dna}</span>
                       </div>
                     ) : null}
                   </dd>
