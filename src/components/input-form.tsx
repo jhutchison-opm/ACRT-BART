@@ -4,6 +4,7 @@ import { resultSchema } from "#utils/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { type CollectionEntry } from "astro:content";
 import { db } from "#utils/dexie/db";
+import { expectedResultObject } from "content/config";
 
 const formPayloadSchema = z.object({ results: z.array(resultSchema) })
 type FormData = z.infer<typeof formPayloadSchema>
@@ -37,6 +38,14 @@ export default function InputForm({ fields }: { fields: CollectionEntry<'testCas
     const value = getValues(`results.${fieldIdx}`)
     db.testResultData.put(value, value.id)
   }
+
+  const resultOptions: { value: string, label: string }[] = []
+  Object.entries(expectedResultObject).forEach(([key, val]) => {
+    resultOptions.push({
+      value: key,
+      label: val
+    })
+  })
 
   return (
     <form onSubmit={handleSubmit(data => console.log({ data }))}>
@@ -101,10 +110,15 @@ export default function InputForm({ fields }: { fields: CollectionEntry<'testCas
                   </div>
                   <div>
                     <label className="usa-label" htmlFor={`testResult-${idx}`}>Test Result</label>
-                    <input className="usa-input" id={`testResult-${idx}`} type="text" {...register(`results.${idx}.testResult` as const, {
+                    <select className="usa-select" id={`testResult-${idx}`} {...register(`results.${idx}.testResult` as const, {
                       required: true,
-                      onBlur: () => saveUpdate(idx)
-                    })} />
+                      onChange: () => saveUpdate(idx)
+                    })}>
+                      <option selected value="">-- Select a Result --</option>
+                      {resultOptions.map((opt) => (
+                        <option value={opt.value}>{opt.label}</option>
+                      ))}
+                    </select>
                   </div>
                   <div>
                     <label className="usa-label" htmlFor={`testComment-${idx}`}>Comment</label>
