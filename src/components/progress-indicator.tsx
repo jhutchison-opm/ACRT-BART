@@ -72,7 +72,7 @@ const GroupProgress = ({ group }: { group: GroupType }) => {
   return (
     <div className="margin-top-2" role="progressbar" aria-labelledby={progressId} aria-valuemin={0} aria-valuemax={100} aria-valuenow={completeValue} aria-valuetext={`${completeValue}%`}>
       <div className="display-flex">
-        <a href={getUrl(`/test-case/'${githubSlug(group.title)}`)}>
+        <a href={getUrl(`/test-case/${githubSlug(group.title)}`)}>
           <span id={progressId}><b>{group.title}</b></span>
         </a>
         <div className="margin-left-auto">
