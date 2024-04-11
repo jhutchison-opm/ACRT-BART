@@ -2,7 +2,7 @@ import testList from '#data/tests.json'
 import { testListSchema } from '#utils/zod'
 import { z } from 'zod'
 
-const validate = () => {
+export const getValidTestList = () => {
   const schema = z.array(testListSchema)
   const result = schema.safeParse(testList.map(item => ({
     baseline_name: item.baseline_name,
@@ -17,5 +17,3 @@ const validate = () => {
 
   return result.data
 }
-
-export const validTestList = validate()

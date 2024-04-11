@@ -6,14 +6,13 @@ import InputForm from "#components/input-form";
 import TestLayout from "#layouts/test-layout.astro";
 // import { getTestCaseGroupsPagination } from "#utils/functions/get-test-case-groups-pagination";
 // import { getUrl } from "#utils/functions/get-url";
-import { validTestList } from "#utils/functions/valid-test-list";
+import { getValidTestList } from "#utils/functions/get-valid-test-list";
 import { slug as githubSlug } from "github-slugger";
 
 export const getStaticPaths = (async () => {
   // const testCaseGroups = await getCollection("testCaseGroups");
-  const testCaseGroupNames = [
-    ...new Set(validTestList.map((d) => d.baseline_name)),
-  ];
+  const testList = getValidTestList();
+  const testCaseGroupNames = [...new Set(testList.map((d) => d.baseline_name))];
   const testCaseGroups = testCaseGroupNames.map((name, idx) => {
     return {
       slug: githubSlug(name),
@@ -36,8 +35,8 @@ const { entry } = Astro.props;
 // const fields = await getCollection("testCases", ({ data }) => {
 //   return data.group.slug === entry.slug;
 // });
-
-const fields = validTestList
+const testList = getValidTestList();
+const fields = testList
   .filter((d) => githubSlug(d.baseline_name) === entry.slug)
   .map((d) => {
     return {
@@ -130,3 +129,4 @@ const fields = validTestList
     </div>
   </TestLayout>
 </SiteLayout>
+#utils/functions/get-valid-test-list
