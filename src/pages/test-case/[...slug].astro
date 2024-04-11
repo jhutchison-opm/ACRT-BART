@@ -6,9 +6,21 @@ import InputForm from "#components/input-form";
 import TestLayout from "#layouts/test-layout.astro";
 import { getTestCaseGroupsPagination } from "#utils/functions/get-test-case-groups-pagination";
 import { getUrl } from "#utils/functions/get-url";
+import data from "#data/tests.json";
+import { slug as githubSlug } from "github-slugger";
 
 export const getStaticPaths = (async () => {
-  const testCaseGroups = await getCollection("testCaseGroups");
+  // const testCaseGroups = await getCollection("testCaseGroups");
+  const testCaseGroups = data.map((d, idx) => {
+    return {
+      slug: githubSlug(d.baseline_name),
+      data: {
+        title: d.baseline_name,
+        order: idx,
+        description: "",
+      },
+    };
+  });
   return testCaseGroups.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
@@ -16,19 +28,33 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+// const { Content } = await entry.render();
 
-const fields = await getCollection("testCases", ({ data }) => {
-  return data.group.slug === entry.slug;
-});
+// const fields = await getCollection("testCases", ({ data }) => {
+//   return data.group.slug === entry.slug;
+// });
 
-const { prev, next } = getTestCaseGroupsPagination(entry.slug);
+const fields = data
+  .filter((d) => githubSlug(d.baseline_name) === entry.slug)
+  .map((d) => {
+    return {
+      data: {
+        id: d.test_case_id,
+        description: "",
+        testName: d.test_procedure,
+        expectedResult: d.expected_result,
+        link: "",
+      },
+    };
+  });
+
+// const { prev, next } = getTestCaseGroupsPagination(entry.slug);
 ---
 
 <SiteLayout>
   <TestLayout>
     <div class="display-flex">
-      {
+      <!-- {
         prev ? (
           <div class="margin-bottom-4">
             <a
@@ -48,19 +74,19 @@ const { prev, next } = getTestCaseGroupsPagination(entry.slug);
             </a>
           </div>
         ) : null
-      }
+      } -->
     </div>
     <div class="usa-prose">
       <div class="margin-bottom-4">
         <h1>{entry.data.title}</h1>
       </div>
-      <Content />
+      <!-- <Content /> -->
     </div>
     <div>
       <InputForm fields={fields} client:only="react" />
     </div>
     <div class="margin-top-4 display-flex">
-      {
+      <!-- {
         prev ? (
           <a
             class="usa-button usa-button--outline display-flex flex-align-center"
@@ -97,7 +123,7 @@ const { prev, next } = getTestCaseGroupsPagination(entry.slug);
             </svg>
           </a>
         ) : null
-      }
+      } -->
     </div>
   </TestLayout>
 </SiteLayout>

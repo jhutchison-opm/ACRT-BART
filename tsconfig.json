@@ -30,6 +30,9 @@
       "#components/*": [
         "components/*"
       ],
+      "#data/*": [
+        "data/*"
+      ],
       "#layouts/*": [
         "layouts/*"
       ],

@@ -8,6 +8,10 @@ const navItems = [
   { label: "View Report", href: "/view-report" },
   { label: "License", href: "/license" },
 ];
+
+const isCurrent = (path: string) => {
+  return Astro.url.pathname.startsWith(path.replace(/\/+/g, "/"));
+};
 ---
 
 <div>
@@ -30,7 +34,13 @@ const navItems = [
           {
             navItems.map((item, idx) => (
               <li class="usa-nav__primary-item">
-                <a href={getUrl(`/${item.href}`)} class="usa-nav-link">
+                <a
+                  href={getUrl(`/${item.href}`)}
+                  class:list={[
+                    "usa-nav_link",
+                    { "usa-current": isCurrent(`/${item.href}`) },
+                  ]}
+                >
                   <span>{item.label}</span>
                 </a>
               </li>

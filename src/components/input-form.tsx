@@ -9,7 +9,16 @@ import { expectedResultObject } from "content/config";
 const formPayloadSchema = z.object({ results: z.array(resultSchema) })
 type FormData = z.infer<typeof formPayloadSchema>
 
-export default function InputForm({ fields }: { fields: CollectionEntry<'testCases'>[] }) {
+export default function InputForm({ fields }: {
+  fields: {
+    data: {
+      id: CollectionEntry<'testCases'>['data']['id'],
+      description: CollectionEntry<'testCases'>['data']['description'],
+      expectedResult: CollectionEntry<'testCases'>['data']['expectedResult'],
+      link: CollectionEntry<'testCases'>['data']['link']
+    }
+  }[]
+}) {
 
   const getDefaultValues = async () => {
     const stored = await db.testResultData.toArray()

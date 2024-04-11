@@ -2,8 +2,18 @@ import * as React from 'react'
 import { db, type ResultDataType } from "#utils/dexie/db"
 import { getCollection } from "astro:content";
 import { useLiveQuery } from "dexie-react-hooks"
+import testList from "#data/tests.json"
+import { slug as githubSlug } from 'github-slugger'
 
-const testCaseGroups = await getCollection("testCaseGroups");
+const testCaseGroups = testList.reduce((acc, item) => {
+  const key = item.baseline_name
+  if (!acc[key]) {
+    acc[key] = []
+  }
+  acc[key].push(item)
+  return acc
+}, {} as { [key: typeof testList[number]['baseline_name']]: typeof testList })
+
 const testCases = await getCollection("testCases");
 
 type GroupProgressType = {
@@ -17,18 +27,18 @@ export default function ProgressIndicator() {
     return acc
   }, {})
 
-  const grouped = testCaseGroups.map((tcg) => {
+  const grouped = Object.keys(testCaseGroups).map((tcg) => {
+    const slug = githubSlug(tcg)
+
     return {
-      title: tcg.data.title,
-      slug: tcg.slug,
-      tests: testCases.filter(tc => tc.data.group.slug === tcg.slug).map(tc => ({
-        id: tc.id,
-        isComplete: (dataByKey[tc.data.id] && dataByKey[tc.data.id].testName && dataByKey[tc.data.id].testResult) ? true : false
+      title: tcg,
+      slug,
+      tests: testCaseGroups[tcg].map(tc => ({
+        id: tc.test_case_id,
+        isComplete: (dataByKey[tc.test_case_id] && dataByKey[tc.test_case_id].testName && dataByKey[tc.test_case_id].testResult) ? true : false
       }))
     }
   })
-
-  console.log({ grouped })
 
   return (
     <div className="bg-base-lighter padding-2">
@@ -54,15 +64,15 @@ type GroupType = {
 const GroupProgress = ({ group }: { group: GroupType }) => {
   const testsCount = group.tests.length
   const completeCount = group.tests.filter(t => t.isComplete).length
-  const completeValue = (completeCount / testsCount) * 100
+  const completeValue = completeCount === 0 ? completeCount : (completeCount / testsCount) * 100
   const progressId = `progress-${React.useId()}`
 
   return (
     <div className="margin-top-2" role="progressbar" aria-labelledby={progressId} aria-valuemin={0} aria-valuemax={100} aria-valuenow={completeValue} aria-valuetext={`${completeValue}%`}>
       <div className="display-flex">
-        <div>
+        <a href={`/test-case/${githubSlug(group.title)}`}>
           <span id={progressId}><b>{group.title}</b></span>
-        </div>
+        </a>
         <div className="margin-left-auto">
           <span>{completeCount}/{testsCount}</span>
         </div>
