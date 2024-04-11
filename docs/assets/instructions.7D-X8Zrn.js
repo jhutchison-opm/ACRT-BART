@@ -1,4 +1,4 @@
-import{f as n,h as r,m as o,u as i}from"./db.t17wDfli.js";import"./index.UCAuQZPX.js";const t=`<h2 id="acrt-instructions">ACRT Instructions</h2>
+import{f as n,h as r,m as o,u as i}from"./db.gNGKVQmI.js";import"./index.UCAuQZPX.js";const t=`<h2 id="acrt-instructions">ACRT Instructions</h2>
 <p>To access ACRT User Guide:</p>
 <ol>
 <li>Locate the instructions in the Resources folder.(The instructions are available in Word and PDF formats.)</li>
