@@ -32,3 +32,12 @@ export const resultSchema = z.object({
   testResult: z.string(),
   testComment: z.string()
 })
+
+const expectedResultEnum = ['pass', 'fail', 'dna'] as const
+
+export const testListSchema = z.object({
+  baseline_name: z.string(),
+  test_case_id: z.string(),
+  expected_result: z.enum(expectedResultEnum),
+  test_procedure: z.string()
+})

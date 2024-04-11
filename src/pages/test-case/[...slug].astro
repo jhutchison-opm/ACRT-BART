@@ -4,14 +4,14 @@ import { getCollection, getEntry } from "astro:content";
 import SiteLayout from "#layouts/site-layout.astro";
 import InputForm from "#components/input-form";
 import TestLayout from "#layouts/test-layout.astro";
-import { getTestCaseGroupsPagination } from "#utils/functions/get-test-case-groups-pagination";
-import { getUrl } from "#utils/functions/get-url";
-import data from "#data/tests.json";
+// import { getTestCaseGroupsPagination } from "#utils/functions/get-test-case-groups-pagination";
+// import { getUrl } from "#utils/functions/get-url";
+import { validTestList } from "#utils/functions/valid-test-list";
 import { slug as githubSlug } from "github-slugger";
 
 export const getStaticPaths = (async () => {
   // const testCaseGroups = await getCollection("testCaseGroups");
-  const testCaseGroups = data.map((d, idx) => {
+  const testCaseGroups = validTestList.map((d, idx) => {
     return {
       slug: githubSlug(d.baseline_name),
       data: {
@@ -34,7 +34,7 @@ const { entry } = Astro.props;
 //   return data.group.slug === entry.slug;
 // });
 
-const fields = data
+const fields = validTestList
   .filter((d) => githubSlug(d.baseline_name) === entry.slug)
   .map((d) => {
     return {

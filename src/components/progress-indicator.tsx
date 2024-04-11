@@ -2,17 +2,17 @@ import * as React from 'react'
 import { db, type ResultDataType } from "#utils/dexie/db"
 import { getCollection } from "astro:content";
 import { useLiveQuery } from "dexie-react-hooks"
-import testList from "#data/tests.json"
 import { slug as githubSlug } from 'github-slugger'
+import { validTestList } from '#utils/functions/valid-test-list';
 
-const testCaseGroups = testList.reduce((acc, item) => {
+const testCaseGroups = validTestList.reduce((acc, item) => {
   const key = item.baseline_name
   if (!acc[key]) {
     acc[key] = []
   }
   acc[key].push(item)
   return acc
-}, {} as { [key: typeof testList[number]['baseline_name']]: typeof testList })
+}, {} as { [key: typeof validTestList[number]['baseline_name']]: typeof validTestList })
 
 const testCases = await getCollection("testCases");
 
