@@ -11,11 +11,14 @@ import { slug as githubSlug } from "github-slugger";
 
 export const getStaticPaths = (async () => {
   // const testCaseGroups = await getCollection("testCaseGroups");
-  const testCaseGroups = validTestList.map((d, idx) => {
+  const testCaseGroupNames = [
+    ...new Set(validTestList.map((d) => d.baseline_name)),
+  ];
+  const testCaseGroups = testCaseGroupNames.map((name, idx) => {
     return {
-      slug: githubSlug(d.baseline_name),
+      slug: githubSlug(name),
       data: {
-        title: d.baseline_name,
+        title: name,
         order: idx,
         description: "",
       },
