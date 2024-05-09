@@ -7,8 +7,4 @@ export default defineConfig({
   integrations: [react()],
   site: 'https://jhutchison-opm.github.io',
   base: import.meta.env.PROD ? '/ACRT-BART' : '',
-  outDir: './docs', // For github pages manual deploy
-  build: {
-    assets: 'assets' // Using a manual dir so .nojekyll isnt needed to deploy to GH pages
-  }
 });
